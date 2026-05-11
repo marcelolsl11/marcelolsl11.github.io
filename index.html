@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <meta charset="UTF-8">
+    <title>Sistema Online</title>
+    
+    <!-- Importação do PyScript Core (Versão moderna e otimizada) -->
+    <link rel="stylesheet" href="https://pyscript.net/core.css" />
+    <script type="module" src="https://pyscript.net/core.js"></script>
+    
+    <style>
+        body { 
+            font-family: monospace; 
+            background-color: #121212; 
+            color: #00ffcc; 
+            padding: 2rem; 
+        }
+        #painel-resultado { 
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid #00ffcc;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <h1>Calculadora Python no Front-end</h1>
-    <py-script>
-        import math
-        resultado = math.factorial(5)
-        print(f"O fatorial de 5 calculado em Python é: {resultado}")
-    </py-script>
-</body>
-<body>
-    <h1>Sistema Online.</h1>
     <p>Deploy via interface gráfica concluído com sucesso.</p>
+    
+    <!-- Criamos um contêiner vazio onde o Python vai injetar a resposta -->
+    <div id="painel-resultado">Processando cálculos via WebAssembly...</div>
+
+    <!-- 
+      ATENÇÃO: Não coloque espaços antes do 'import' ou do 'resultado'.
+      O código Python deve ficar colado na margem esquerda.
+    -->
+    <script type="py">
+import math
+from pyscript import document
+
+# Processamento lógico
+resultado = math.factorial(5)
+texto_final = f"O fatorial de 5 calculado em Python é: {resultado}"
+
+# O Python acessa o elemento HTML pelo ID e substitui o texto na tela
+document.getElementById("painel-resultado").innerText = texto_final
+    </script>
 </body>
 </html>

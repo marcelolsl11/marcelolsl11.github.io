@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Meu Portfólio</title>
-    <style>
-        body { background-color: #121212; color: #00ffcc; font-family: monospace; text-align: center; padding-top: 20%; }
-    </style>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
+<body>
+    <h1>Calculadora Python no Front-end</h1>
+    <py-script>
+        import math
+        resultado = math.factorial(5)
+        print(f"O fatorial de 5 calculado em Python é: {resultado}")
+    </py-script>
+</body>
 <body>
     <h1>Sistema Online.</h1>
     <p>Deploy via interface gráfica concluído com sucesso.</p>

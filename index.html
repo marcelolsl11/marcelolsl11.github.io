@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seu Nome — Inteligência Artificial, Automações & Full-stack</title>
+  <meta name="description" content="Portfólio pessoal de Seu Nome: soluções com Inteligência Artificial, automações de processos, backend e front-end." />
+
+  <!-- ============================================================
+       FONTES
+       Space Grotesk  -> títulos (display)
+       Inter          -> textos corridos (body)
+       JetBrains Mono -> rótulos, código, status bar (utility)
+       Se o link do Google Fonts não carregar, as fontes de fallback
+       definidas no CSS (abaixo) assumem automaticamente.
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       ARQUIVO: style.css
+       (Em um projeto real, mova todo o conteúdo desta tag <style>
+        para um arquivo style.css separado e linke com:
+        <link rel="stylesheet" href="style.css">)
+  ============================================================ -->
+  <style>
+
+    /* ==========================================================
+       1. VARIÁVEIS GLOBAIS (DESIGN TOKENS)
+       Altere as cores e fontes aqui — o resto do site se atualiza
+       automaticamente.
+    ========================================================== */
+    :root {
+      /* --- Cores de fundo --- */
+      --color-bg: #F8F9FB;          /* fundo geral do site (off-white frio) */
+      --color-bg-surface: #FFFFFF;  /* fundo de cards e superfícies elevadas */
+      --color-bg-dark: #14181F;     /* fundo escuro: editor, footer */
+
+      /* --- Cores de texto --- */
+      --color-ink: #14181F;         /* texto principal */
+      --color-ink-muted: #5B6472;   /* texto secundário / legendas */
+      --color-ink-on-dark: #E7EAF0; /* texto sobre fundo escuro */
+      --color-ink-on-dark-muted: #8B93A3;
+
+      /* --- Cor primária e de destaque ---
+         Altere a cor primária aqui: botões, links e tab ativa usam --color-primary */
+      --color-primary: #3454D1;     /* azul índigo */
+      --color-primary-dark: #28419E;
+      --color-accent: #FF6B4A;      /* coral — usado só em poucos detalhes (cursor, hover) */
+      --color-success: #2BAE66;     /* verde do indicador "disponível" */
+
+      /* --- Cores por área de atuação (o "language color" de cada especialidade) ---
+         Altere aqui se quiser outra cor para representar cada área.
+         IA usa uma cor própria de destaque por ser o foco principal. */
+      --color-ia: #8B5CF6;          /* violeta — Inteligência Artificial (foco principal) */
+      --color-automacao: #D9A62E;   /* âmbar — Automações */
+      --color-backend: var(--color-primary);  /* reaproveita o índigo — Backend */
+      --color-frontend: var(--color-accent);  /* reaproveita o coral — Front-end */
+
+      /* --- Bordas e sombras --- */
+      --color-border: #E2E5EA;
+      --color-border-dark: #2A313D;
+      --shadow-card: 0 1px 2px rgba(20, 24, 31, 0.04), 0 8px 24px rgba(20, 24, 31, 0.06);
+
+      /* --- Tipografia --- */
+      --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+      --font-body: "Inter", "Segoe UI", sans-serif;
+      --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+      /* --- Espaçamentos e layout --- */
+      --max-width: 1100px;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --space-section: 5rem;
+    }
+
+    /* ==========================================================
+       2. RESET BÁSICO
+    ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body, h1, h2, h3, p, ul, figure { margin: 0; }
+    img { max-width: 100%; display: block; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+
+    /* Respeita usuários que preferem menos animação */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
+
+    /* Acessibilidade: contorno de foco visível para navegação por teclado */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    body {
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section { padding: var(--space-section) 0; }
+
+    .section__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    /* ==========================================================
+       3. CABEÇALHO / NAVEGAÇÃO ("abas de editor de código")
+       A navegação simula as abas de arquivos abertos em um editor.
+    ========================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 249, 251, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .logo span { color: var(--color-primary); } /* destaque do ">" no logo */
+
+    /* Botão hambúrguer (visível só no mobile) */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+    }
+    .menu-toggle__bar {
+      width: 22px;
+      height: 2px;
+      background: var(--color-ink);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg-surface);
+      border-bottom: 1px solid var(--color-border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-tabs.is-open { max-height: 300px; }
+
+    .nav-tab {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-tab__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-border);
+    }
+    .nav-tab.is-active {
+      color: var(--color-ink);
+      background: var(--color-bg);
+      box-shadow: inset 3px 0 0 var(--color-primary);
+    }
+    .nav-tab.is-active .nav-tab__dot { background: var(--color-accent); }
+
+    /* A partir de 768px, as abas voltam a ficar visíveis na horizontal */
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+      .nav-tabs {
+        position: static;
+        flex-direction: row;
+        max-height: none;
+        background: none;
+        border-bottom: none;
+        overflow: visible;
+      }
+      .nav-tab {
+        border-bottom: 2px solid transparent;
+        padding: 0.5rem 0.9rem;
+      }
+      .nav-tab.is-active {
+        box-shadow: none;
+        border-bottom: 2px solid var(--color-primary);
+      }
+    }
+
+    /* ==========================================================
+       4. HERO / APRESENTAÇÃO
+       Bloco central: um "editor de código" com a apresentação.
+    ========================================================== */
+    .hero { padding: 3.5rem 0 var(--space-section); }
+
+    .code-window {
+      background: var(--color-bg-dark);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .code-window__bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1rem;
+      background: #1B212B;
+      border-bottom: 1px solid var(--color-border-dark);
+    }
+
+    .code-window__dot { width: 10px; height: 10px; border-radius: 50%; }
+    .code-window__dot--red { background: #FF5F57; }
+    .code-window__dot--yellow { background: #FEBC2E; }
+    .code-window__dot--green { background: #28C840; }
+
+    .code-window__filename {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-ink-on-dark-muted);
+      margin-left: 0.5rem;
+    }
+
+    .code-block {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--color-ink-on-dark);
+      padding: 1.5rem 1.25rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      line-height: 1.7;
+    }
+    .code-comment { color: #6B7585; }
+    .code-keyword { color: #C792EA; }
+    .code-var { color: #82AAFF; }
+    .code-string { color: #C3E88D; }
+    .code-bool { color: #FF8B7B; }
+    .code-ia { color: var(--color-ia); font-weight: 700; } /* destaca o foco principal: IA */
+
+    /* Cursor que pisca ao lado do texto digitado dinamicamente pelo JS */
+    .cursor {
+      display: inline-block;
+      color: var(--color-accent);
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) {
+      .hero__actions { flex-direction: row; }
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary { background: var(--color-primary); color: #fff; }
+    .btn--primary:hover { background: var(--color-primary-dark); }
+    .btn--ghost { border-color: var(--color-border); color: var(--color-ink); }
+    .btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+    /* ==========================================================
+       5. SOBRE MIM
+    ========================================================== */
+    .sobre__content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sobre__photo img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .sobre__text p { color: var(--color-ink-muted); margin-bottom: 1rem; }
+
+    .sobre__meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      color: var(--color-ink-muted);
+      border-top: 1px dashed var(--color-border);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+    .sobre__meta li span { color: var(--color-ink); }
+
+    @media (min-width: 768px) {
+      .sobre__content { flex-direction: row; align-items: flex-start; gap: 3rem; }
+      .sobre__photo img { width: 220px; height: 220px; }
+      .sobre__text { flex: 1; }
+    }
+
+    /* ==========================================================
+       6. GRID DE CARDS (reaproveitado em "Áreas de atuação" e "Projetos")
+    ========================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 700px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ----------------------------------------------------------
+       6.1 CARDS DE ESPECIALIDADE (seção "Áreas de atuação")
+       A borda esquerda colorida indica a área — mesma lógica de
+       cores usada nas etiquetas dos projetos mais abaixo.
+    ---------------------------------------------------------- */
+    .specialty-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .specialty-card--ia { border-left-color: var(--color-ia); }
+    .specialty-card--automacao { border-left-color: var(--color-automacao); }
+    .specialty-card--backend { border-left-color: var(--color-backend); }
+    .specialty-card--frontend { border-left-color: var(--color-frontend); }
+
+    .specialty-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .specialty-card__file {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-ink-muted);
+    }
+
+    .specialty-card__highlight {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-ia);
+      border: 1px solid var(--color-ia);
+      border-radius: 4px;
+      padding: 0.1rem 0.45rem;
+    }
+
+    .specialty-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .specialty-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
+
+    .specialty-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .specialty-card__tags li {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-ink-muted);
+      background: var(--color-bg);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ==========================================================
+       7. PROJETOS
+    ========================================================== */
+    .project-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .project-card:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
+
+    .project-card__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-card__badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      color: var(--color-primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+    /* Variantes de cor da badge, alinhadas com a área do projeto */
+    .project-card__badge--ia { color: var(--color-ia); border-color: var(--color-ia); }
+    .project-card__badge--automacao { color: var(--color-automacao); border-color: var(--color-automacao); }
+    .project-card__badge--backend { color: var(--color-backend); border-color: var(--color-backend); }
+    .project-card__badge--frontend { color: var(--color-frontend); border-color: var(--color-frontend); }
+
+    .project-card__links { display: flex; gap: 0.6rem; }
+    .project-card__links a { color: var(--color-ink-muted); }
+    .project-card__links a:hover { color: var(--color-primary); }
+    .project-card__links svg { width: 18px; height: 18px; }
+
+    .project-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .project-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
+
+    .project-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .project-card__tags li {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-ink-muted);
+      background: var(--color-bg);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ==========================================================
+       8. CONTATO
+    ========================================================== */
+    .contato__lead {
+      color: var(--color-ink-muted);
+      max-width: 32rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      max-width: 32rem;
+    }
+
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-field label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--color-ink-muted);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-bg-surface);
+      color: var(--color-ink);
+    }
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--color-primary); }
+
+    .form-status {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      min-height: 1.2rem;
+    }
+    .form-status.is-success { color: var(--color-success); }
+    .form-status.is-error { color: var(--color-accent); }
+
+    /* ==========================================================
+       9. RODAPÉ ("status bar" de editor de código)
+    ========================================================== */
+    .status-bar {
+      background: var(--color-bg-dark);
+      color: var(--color-ink-on-dark-muted);
+      padding: 1rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .status-bar__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .status-bar__row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .status-bar__left { display: flex; align-items: center; gap: 0.5rem; }
+
+    .status-bar__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-success);
+      box-shadow: 0 0 0 0 rgba(43, 174, 102, 0.6);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(43, 174, 102, 0.5); }
+      70% { box-shadow: 0 0 0 6px rgba(43, 174, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(43, 174, 102, 0); }
+    }
+
+    .status-bar__socials { display: flex; gap: 0.9rem; }
+    .status-bar__socials a { color: var(--color-ink-on-dark-muted); }
+    .status-bar__socials a:hover { color: var(--color-ink-on-dark); }
+    .status-bar__socials svg { width: 16px; height: 16px; }
+
+    .status-bar__copy {
+      color: #4D5667;
+      border-top: 1px solid var(--color-border-dark);
+      padding-top: 0.75rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       ARQUIVO: index.html
+       Estrutura semântica da página.
+  ============================================================ -->
+
+  <!-- CABEÇALHO + NAVEGAÇÃO -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="logo">&gt;<span>_</span>seu-nome.ai</a>
+
+      <!-- Botão exibido apenas no mobile para abrir o menu -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navTabs">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+
+      <!-- Navegação estilizada como abas de arquivos abertos em um editor.
+           Cada extensão remete à área correspondente (.py para IA, .yml para
+           automação, etc.) — veja a seção "Áreas de atuação" para o mesmo padrão. -->
+      <nav>
+        <ul class="nav-tabs" id="navTabs">
+          <li><a href="#inicio" class="nav-tab is-active" data-tab><span class="nav-tab__dot"></span>inicio.js</a></li>
+          <li><a href="#atuacao" class="nav-tab" data-tab><span class="nav-tab__dot"></span>atuacao.py</a></li>
+          <li><a href="#sobre" class="nav-tab" data-tab><span class="nav-tab__dot"></span>sobre.js</a></li>
+          <li><a href="#projetos" class="nav-tab" data-tab><span class="nav-tab__dot"></span>projetos.js</a></li>
+          <li><a href="#contato" class="nav-tab" data-tab><span class="nav-tab__dot"></span>contato.html</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         SEÇÃO 1 — HERO / APRESENTAÇÃO
+    ======================================================== -->
+    <section id="inicio" class="hero">
+      <div class="container">
+        <div class="code-window">
+          <div class="code-window__bar">
+            <span class="code-window__dot code-window__dot--red"></span>
+            <span class="code-window__dot code-window__dot--yellow"></span>
+            <span class="code-window__dot code-window__dot--green"></span>
+            <span class="code-window__filename">apresentacao.js</span>
+          </div>
+          <pre class="code-block"><span class="code-comment">// olá, seja bem-vindo(a) ao meu portfólio</span>
+<span class="code-keyword">const</span> <span class="code-var">perfil</span> = {
+  <!-- Altere seu nome aqui -->
+  nome: <span class="code-string">"Seu Nome"</span>,
+  cargo: <span class="code-string">"<span id="typingRole"></span><span class="cursor">|</span>"</span>,
+  <!-- Altere suas áreas de atuação aqui -->
+  areas: [<span class="code-string">"IA"</span>, <span class="code-string">"Automação"</span>, <span class="code-string">"Backend"</span>, <span class="code-string">"Frontend"</span>],
+  foco_principal: <span class="code-ia">"Inteligência Artificial"</span>,
+  disponivel: <span class="code-bool">true</span>,
+};</pre>
+        </div>
+
+        <div class="hero__actions">
+          <a href="#projetos" class="btn btn--primary">Ver projetos</a>
+          <a href="#contato" class="btn btn--ghost">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SEÇÃO 2 — ÁREAS DE ATUAÇÃO
+         Cada card representa uma especialidade, no formato de um
+         "arquivo" aberto no editor — a extensão remete à área.
+    ======================================================== -->
+    <section id="atuacao" class="section atuacao">
+      <div class="container">
+        <p class="section__eyebrow">// areas-de-atuacao/</p>
+        <h2 class="section__title">O que eu faço</h2>
+
+        <div class="cards-grid">
+
+          <!-- Card em destaque: Inteligência Artificial (foco principal) -->
+          <article class="specialty-card specialty-card--ia">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">modelo.py</span>
+              <span class="specialty-card__highlight">Foco principal</span>
+            </div>
+            <!-- Altere o título e a descrição desta área aqui -->
+            <h3 class="specialty-card__title">Inteligência Artificial</h3>
+            <p class="specialty-card__desc">
+              Desenvolvimento de soluções com IA: integração de modelos de linguagem,
+              chatbots inteligentes, automação cognitiva e aplicações de machine learning.
+            </p>
+            <ul class="specialty-card__tags">
+              <li>Python</li>
+              <li>LLMs</li>
+              <li>LangChain</li>
+              <li>Machine Learning</li>
+            </ul>
+          </article>
+
+          <article class="specialty-card specialty-card--automacao">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">fluxo.yml</span>
+            </div>
+            <h3 class="specialty-card__title">Automação de Processos</h3>
+            <p class="specialty-card__desc">
+              Criação de fluxos automatizados que eliminam tarefas repetitivas e conectam
+              ferramentas diferentes, economizando tempo e reduzindo erros manuais.
+            </p>
+            <ul class="specialty-card__tags">
+              <li>n8n</li>
+              <li>Zapier</li>
+              <li>APIs</li>
+              <li>Python</li>
+            </ul>
+          </article>
+
+          <article class="specialty-card specialty-card--backend">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">servidor.js</span>
+            </div>
+            <h3 class="specialty-card__title">Backend & APIs</h3>
+            <p class="specialty-card__desc">
+              Construção de APIs e arquiteturas de servidor robustas, escaláveis e
+              preparadas para sustentar produtos e integrações de IA em produção.
+            </p>
+            <ul class="specialty-card__tags">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>PostgreSQL</li>
+              <li>Docker</li>
+            </ul>
+          </article>
+
+          <article class="specialty-card specialty-card--frontend">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">interface.tsx</span>
+            </div>
+            <h3 class="specialty-card__title">Front-end</h3>
+            <p class="specialty-card__desc">
+              Interfaces acessíveis, responsivas e intuitivas que tornam soluções
+              complexas — como produtos de IA — simples de usar no dia a dia.
+            </p>
+            <ul class="specialty-card__tags">
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>CSS</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SEÇÃO 3 — SOBRE MIM
+    ======================================================== -->
+    <section id="sobre" class="section sobre">
+      <div class="container">
+        <p class="section__eyebrow">// sobre-mim.md</p>
+        <h2 class="section__title">Sobre mim</h2>
+
+        <div class="sobre__content">
+          <div class="sobre__photo">
+            <!-- Insira sua foto aqui: troque o "src" abaixo pelo caminho da sua imagem -->
+            <img src="https://via.placeholder.com/400x400" alt="Foto de Seu Nome">
+          </div>
+
+          <div class="sobre__text">
+            <!-- Altere o texto de apresentação aqui -->
+            <p>
+              Olá! Sou apaixonado(a) por Inteligência Artificial e por tudo que ela
+              torna possível: automações que economizam horas de trabalho manual,
+              sistemas mais inteligentes e produtos que realmente entendem quem os usa.
+            </p>
+            <p>
+              Atuo de ponta a ponta — da IA e automação de processos ao backend e
+              front-end — para transformar ideias em soluções completas, do modelo
+              até a interface que o usuário final toca.
+            </p>
+
+            <!-- Lista de informações rápidas — edite os valores dentro de cada <span> -->
+            <ul class="sobre__meta">
+              <li>localizacao: <span>Sua Cidade, Brasil</span></li>
+              <li>foco: <span>Inteligência Artificial & Automação</span></li>
+              <li>disponibilidade: <span>Aberto a novas oportunidades</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SEÇÃO 4 — MEUS PROJETOS
+    ======================================================== -->
+    <section id="projetos" class="section projetos">
+      <div class="container">
+        <p class="section__eyebrow">// projetos/</p>
+        <h2 class="section__title">Meus Projetos</h2>
+
+        <div class="cards-grid">
+
+          <!-- Card de projeto — copie este bloco <article> para adicionar mais projetos -->
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--ia">.PYTHON</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="Ver código no GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                </a>
+                <a href="#" aria-label="Ver projeto online">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
+                </a>
+              </div>
+            </div>
+            <!-- Altere o nome e a descrição do projeto aqui -->
+            <h3 class="project-card__title">Assistente com IA Generativa</h3>
+            <p class="project-card__desc">Chatbot inteligente com integração a um modelo de linguagem para responder dúvidas e automatizar atendimento.</p>
+            <ul class="project-card__tags">
+              <li>Python</li>
+              <li>LangChain</li>
+              <li>OpenAI API</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--automacao">.YML</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="Ver código no GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                </a>
+                <a href="#" aria-label="Ver projeto online">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Pipeline de Automação</h3>
+            <p class="project-card__desc">Fluxo automatizado que conecta formulários, planilhas e e-mails, eliminando tarefas manuais repetitivas.</p>
+            <ul class="project-card__tags">
+              <li>n8n</li>
+              <li>Webhooks</li>
+              <li>Python</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--backend">.NODE</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="Ver código no GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                </a>
+                <a href="#" aria-label="Ver projeto online">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">API para Integração de Dados</h3>
+            <p class="project-card__desc">API REST que centraliza e organiza dados de diferentes sistemas, servindo de base para outras aplicações.</p>
+            <ul class="project-card__tags">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--frontend">.REACT</span>
+              <div class="project-card__links">
+                <a href="#" aria-label="Ver código no GitHub">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+                </a>
+                <a href="#" aria-label="Ver projeto online">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Dashboard de Métricas</h3>
+            <p class="project-card__desc">Interface para visualizar, em tempo real, os resultados gerados pelos modelos de IA e automações.</p>
+            <ul class="project-card__tags">
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>Recharts</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SEÇÃO 5 — CONTATO
+    ======================================================== -->
+    <section id="contato" class="section contato">
+      <div class="container">
+        <p class="section__eyebrow">// contato.html</p>
+        <h2 class="section__title">Vamos conversar</h2>
+        <p class="contato__lead">
+          <!-- Altere o texto de chamada para contato aqui -->
+          Tem um projeto de IA, uma automação para construir ou uma ideia em mente?
+          Preencha o formulário abaixo e eu retorno o quanto antes.
+        </p>
+
+        <!-- Formulário front-end apenas: sem envio real ainda.
+             Para conectar a um backend, troque o JS de envio (ver script.js)
+             por uma integração real, como Formspree, EmailJS ou uma API própria. -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-field">
+            <label for="nome">nome</label>
+            <input type="text" id="nome" name="nome" required placeholder="Como podemos te chamar?">
+          </div>
+          <div class="form-field">
+            <label for="email">email</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+          </div>
+          <div class="form-field">
+            <label for="mensagem">mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Conte um pouco sobre o que você precisa..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Enviar mensagem $</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       RODAPÉ — "status bar" no estilo de um editor de código
+  ======================================================== -->
+  <footer class="status-bar">
+    <div class="status-bar__inner">
+      <div class="status-bar__row">
+        <div class="status-bar__left">
+          <span class="status-bar__dot" aria-hidden="true"></span>
+          <span>Disponível para novos projetos</span>
+        </div>
+
+        <div class="status-bar__row" style="gap: 1.25rem;">
+          <span id="localTime"></span>
+
+          <!-- Altere os links das suas redes sociais aqui -->
+          <div class="status-bar__socials">
+            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+            </a>
+            <a href="mailto:seuemail@exemplo.com" aria-label="E-mail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3V5Zm0 0 9 7 9-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Altere o nome no copyright aqui -->
+      <p class="status-bar__copy">© <span id="currentYear"></span> Seu Nome. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       ARQUIVO: script.js
+       (Em um projeto real, mova todo o conteúdo desta tag <script>
+        para um arquivo script.js separado e linke no fim do <body> com:
+        <script src="script.js"></script>)
+  ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* --------------------------------------------------------
+         1. MENU MOBILE (abrir/fechar abas de navegação)
+      -------------------------------------------------------- */
+      const menuToggle = document.getElementById('menuToggle');
+      const navTabs = document.getElementById('navTabs');
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navTabs.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      });
+
+      // Fecha o menu mobile automaticamente ao clicar em uma aba
+      const navTabLinks = document.querySelectorAll('[data-tab]');
+      navTabLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navTabs.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* --------------------------------------------------------
+         2. ABA ATIVA CONFORME A SEÇÃO VISÍVEL NA TELA
+      -------------------------------------------------------- */
+      const sections = document.querySelectorAll('main section[id]');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navTabLinks.forEach((link) => {
+              link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' }); // dispara quando a seção cruza o centro da tela
+
+      sections.forEach((section) => observer.observe(section));
+
+      /* --------------------------------------------------------
+         3. EFEITO DE DIGITAÇÃO NO CARGO (HERO)
+         Altere a lista "cargos" abaixo para trocar os textos exibidos.
+      -------------------------------------------------------- */
+      const typingEl = document.getElementById('typingRole');
+      const cargos = [
+        'Engenheiro(a) de IA',
+        'Apaixonado(a) por automação',
+        'Full-stack: backend & frontend'
+      ];
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (typingEl && !prefersReducedMotion) {
+        let cargoIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function digitar() {
+          const textoAtual = cargos[cargoIndex];
+
+          if (!isDeleting) {
+            charIndex++;
+            typingEl.textContent = textoAtual.slice(0, charIndex);
+            if (charIndex === textoAtual.length) {
+              isDeleting = true;
+              setTimeout(digitar, 1800); // pausa antes de começar a apagar
+              return;
+            }
+          } else {
+            charIndex--;
+            typingEl.textContent = textoAtual.slice(0, charIndex);
+            if (charIndex === 0) {
+              isDeleting = false;
+              cargoIndex = (cargoIndex + 1) % cargos.length;
+            }
+          }
+
+          setTimeout(digitar, isDeleting ? 40 : 80);
+        }
+
+        digitar();
+      } else if (typingEl) {
+        // Sem animação para quem prefere menos movimento: mostra o primeiro cargo direto
+        typingEl.textContent = cargos[0];
+      }
+
+      /* --------------------------------------------------------
+         4. RELÓGIO LOCAL E ANO ATUAL NO RODAPÉ
+      -------------------------------------------------------- */
+      const localTimeEl = document.getElementById('localTime');
+      const currentYearEl = document.getElementById('currentYear');
+
+      function atualizarRelogio() {
+        const agora = new Date();
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        localTimeEl.textContent = `${horas}:${minutos} local`;
+      }
+
+      atualizarRelogio();
+      setInterval(atualizarRelogio, 1000 * 30); // atualiza a cada 30s
+      currentYearEl.textContent = new Date().getFullYear();
+
+      /* --------------------------------------------------------
+         5. FORMULÁRIO DE CONTATO (validação simples, sem backend)
+         Quando integrar com um serviço real, troque o bloco do
+         setTimeout abaixo pela chamada de envio de fato (fetch, etc.)
+      -------------------------------------------------------- */
+      const form = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          formStatus.textContent = '✖ Preencha todos os campos corretamente.';
+          formStatus.className = 'form-status is-error';
+          return;
+        }
+
+        formStatus.textContent = 'Enviando...';
+        formStatus.className = 'form-status';
+
+        // Simulação de envio — substitua por uma integração real quando for o caso
+        setTimeout(() => {
+          formStatus.textContent = '✔ Mensagem enviada! Em breve entro em contato.';
+          formStatus.className = 'form-status is-success';
+          form.reset();
+        }, 900);
+      });
+
+    });
+  </script>
+
+</body>
+</html>

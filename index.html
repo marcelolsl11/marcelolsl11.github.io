@@ -3,72 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marcelo Lucas — Inteligência Artificial, Automações & Full-stack</title>
-  <meta name="description" content="Portfólio pessoal de Marcelo Lucas: soluções com Inteligência Artificial, automações de processos, backend e front-end." />
+  <title>Marcelo Lucas | Engenheiro de IA & Automação</title>
+  <meta name="description" content="Portfólio de Marcelo Lucas: Desenvolvedor especializado em Inteligência Artificial, Automação de Processos, Desenvolvimento Web e Marketing." />
 
-  <!-- ============================================================
-       FONTES
-       Space Grotesk  -> títulos (display)
-       Inter          -> textos corridos (body)
-       JetBrains Mono -> rótulos, código, status bar (utility)
-       Se o link do Google Fonts não carregar, as fontes de fallback
-       definidas no CSS (abaixo) assumem automaticamente.
-  ============================================================ -->
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- ============================================================
-       ARQUIVO: style.css
-       (Em um projeto real, mova todo o conteúdo desta tag <style>
-        para um arquivo style.css separado e linke com:
-        <link rel="stylesheet" href="style.css">)
-  ============================================================ -->
   <style>
-
     /* ==========================================================
        1. VARIÁVEIS GLOBAIS (DESIGN TOKENS)
-       Altere as cores e fontes aqui — o resto do site se atualiza
-       automaticamente.
     ========================================================== */
     :root {
-      /* --- Cores de fundo --- */
-      --color-bg: #F8F9FB;          /* fundo geral do site (off-white frio) */
-      --color-bg-surface: #FFFFFF;  /* fundo de cards e superfícies elevadas */
-      --color-bg-dark: #14181F;     /* fundo escuro: editor, footer */
+      /* Cores de Fundo */
+      --color-bg: #F8F9FB;
+      --color-bg-surface: #FFFFFF;
+      --color-bg-dark: #14181F;
+      --color-bg-darker: #0E1116;
 
-      /* --- Cores de texto --- */
-      --color-ink: #14181F;         /* texto principal */
-      --color-ink-muted: #5B6472;   /* texto secundário / legendas */
-      --color-ink-on-dark: #E7EAF0; /* texto sobre fundo escuro */
+      /* Cores de Texto */
+      --color-ink: #14181F;
+      --color-ink-muted: #5B6472;
+      --color-ink-on-dark: #E7EAF0;
       --color-ink-on-dark-muted: #8B93A3;
 
-      /* --- Cor primária e de destaque ---
-         Altere a cor primária aqui: botões, links e tab ativa usam --color-primary */
-      --color-primary: #3454D1;     /* azul índigo */
+      /* Cores Principais */
+      --color-primary: #3454D1;
       --color-primary-dark: #28419E;
-      --color-accent: #FF6B4A;      /* coral — usado só em poucos detalhes (cursor, hover) */
-      --color-success: #2BAE66;     /* verde do indicador "disponível" */
+      --color-accent: #FF6B4A;
+      --color-success: #2BAE66;
 
-      /* --- Cores por área de atuação (o "language color" de cada especialidade) ---
-         Altere aqui se quiser outra cor para representar cada área.
-         IA usa uma cor própria de destaque por ser o foco principal. */
-      --color-ia: #8B5CF6;          /* violeta — Inteligência Artificial (foco principal) */
-      --color-automacao: #D9A62E;   /* âmbar — Automações */
-      --color-backend: var(--color-primary);  /* reaproveita o índigo — Backend */
-      --color-frontend: var(--color-accent);  /* reaproveita o coral — Front-end */
+      /* Cores por Área de Atuação (Os 4 Pilares) */
+      --color-ia: #8B5CF6;        /* IA - Violeta */
+      --color-automacao: #D9A62E; /* Automação - Âmbar */
+      --color-backend: #3454D1;   /* Desenvolvimento - Índigo */
+      --color-marketing: #10B981; /* Marketing & CRM - Esmeralda */
 
-      /* --- Bordas e sombras --- */
+      /* Bordas e Sombras */
       --color-border: #E2E5EA;
       --color-border-dark: #2A313D;
       --shadow-card: 0 1px 2px rgba(20, 24, 31, 0.04), 0 8px 24px rgba(20, 24, 31, 0.06);
 
-      /* --- Tipografia --- */
+      /* Tipografia */
       --font-display: "Space Grotesk", "Segoe UI", sans-serif;
       --font-body: "Inter", "Segoe UI", sans-serif;
       --font-mono: "JetBrains Mono", "Courier New", monospace;
 
-      /* --- Espaçamentos e layout --- */
+      /* Espaçamento */
       --max-width: 1100px;
       --radius-sm: 6px;
       --radius-md: 12px;
@@ -80,20 +62,18 @@
     ========================================================== */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body, h1, h2, h3, p, ul, figure { margin: 0; }
+    body, h1, h2, h3, h4, p, ul, figure { margin: 0; }
     img { max-width: 100%; display: block; }
     ul { padding: 0; list-style: none; }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; cursor: pointer; }
 
-    /* Respeita usuários que preferem menos animação */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
     }
 
-    /* Acessibilidade: contorno de foco visível para navegação por teclado */
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: 2px solid var(--color-primary);
       outline-offset: 2px;
     }
@@ -131,8 +111,7 @@
     }
 
     /* ==========================================================
-       3. CABEÇALHO / NAVEGAÇÃO ("abas de editor de código")
-       A navegação simula as abas de arquivos abertos em um editor.
+       3. CABEÇALHO / NAVEGAÇÃO
     ========================================================== */
     .header {
       position: sticky;
@@ -157,9 +136,8 @@
       font-weight: 700;
       font-size: 1rem;
     }
-    .logo span { color: var(--color-primary); } /* destaque do ">" no logo */
+    .logo span { color: var(--color-primary); }
 
-    /* Botão hambúrguer (visível só no mobile) */
     .menu-toggle {
       display: flex;
       flex-direction: column;
@@ -192,7 +170,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    .nav-tabs.is-open { max-height: 300px; }
+    .nav-tabs.is-open { max-height: 350px; }
 
     .nav-tab {
       font-family: var(--font-mono);
@@ -217,7 +195,6 @@
     }
     .nav-tab.is-active .nav-tab__dot { background: var(--color-accent); }
 
-    /* A partir de 768px, as abas voltam a ficar visíveis na horizontal */
     @media (min-width: 768px) {
       .menu-toggle { display: none; }
       .nav-tabs {
@@ -240,7 +217,6 @@
 
     /* ==========================================================
        4. HERO / APRESENTAÇÃO
-       Bloco central: um "editor de código" com a apresentação.
     ========================================================== */
     .hero { padding: 3.5rem 0 var(--space-section); }
 
@@ -274,21 +250,20 @@
 
     .code-block {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--color-ink-on-dark);
       padding: 1.5rem 1.25rem;
       overflow-x: auto;
       white-space: pre-wrap;
       line-height: 1.7;
     }
-    .code-comment { color: #6B7585; }
+    .code-comment { color: #6B7585; font-style: italic; }
     .code-keyword { color: #C792EA; }
     .code-var { color: #82AAFF; }
     .code-string { color: #C3E88D; }
     .code-bool { color: #FF8B7B; }
-    .code-ia { color: var(--color-ia); font-weight: 700; } /* destaca o foco principal: IA */
+    .code-ia { color: var(--color-ia); font-weight: 700; }
 
-    /* Cursor que pisca ao lado do texto digitado dinamicamente pelo JS */
     .cursor {
       display: inline-block;
       color: var(--color-accent);
@@ -314,6 +289,7 @@
       text-align: center;
       border: 1px solid transparent;
       transition: transform 0.15s ease, background 0.15s ease;
+      font-weight: 500;
     }
     .btn:hover { transform: translateY(-1px); }
     .btn--primary { background: var(--color-primary); color: #fff; }
@@ -322,24 +298,81 @@
     .btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
 
     /* ==========================================================
-       5. SOBRE MIM
+       5. ÁREAS DE ATUAÇÃO
+    ========================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 700px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .specialty-card {
+      background: var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .specialty-card--ia { border-left-color: var(--color-ia); }
+    .specialty-card--automacao { border-left-color: var(--color-automacao); }
+    .specialty-card--backend { border-left-color: var(--color-backend); }
+    .specialty-card--marketing { border-left-color: var(--color-marketing); }
+
+    .specialty-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .specialty-card__file {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-ink-muted);
+    }
+    .specialty-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .specialty-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
+    .specialty-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .specialty-card__tags li {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-ink-muted);
+      background: var(--color-bg);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ==========================================================
+       6. SOBRE MIM
     ========================================================== */
     .sobre__content {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
-
     .sobre__photo img {
       width: 160px;
       height: 160px;
       object-fit: cover;
       border-radius: var(--radius-md);
       border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
     }
-
     .sobre__text p { color: var(--color-ink-muted); margin-bottom: 1rem; }
-
     .sobre__meta {
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -360,86 +393,53 @@
     }
 
     /* ==========================================================
-       6. GRID DE CARDS (reaproveitado em "Áreas de atuação" e "Projetos")
+       7. EXPERIÊNCIA (TIMELINE)
     ========================================================== */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    @media (min-width: 700px) {
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ----------------------------------------------------------
-       6.1 CARDS DE ESPECIALIDADE (seção "Áreas de atuação")
-       A borda esquerda colorida indica a área — mesma lógica de
-       cores usada nas etiquetas dos projetos mais abaixo.
-    ---------------------------------------------------------- */
-    .specialty-card {
-      background: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-left: 4px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
+    .timeline {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 1.5rem;
     }
-    .specialty-card--ia { border-left-color: var(--color-ia); }
-    .specialty-card--automacao { border-left-color: var(--color-automacao); }
-    .specialty-card--backend { border-left-color: var(--color-backend); }
-    .specialty-card--frontend { border-left-color: var(--color-frontend); }
-
-    .specialty-card__top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid var(--color-border);
     }
-
-    .specialty-card__file {
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+    .timeline-item__date {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--color-ink-muted);
+      color: var(--color-primary);
+      margin-bottom: 0.2rem;
+      display: block;
     }
-
-    .specialty-card__highlight {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--color-ia);
-      border: 1px solid var(--color-ia);
-      border-radius: 4px;
-      padding: 0.1rem 0.45rem;
-    }
-
-    .specialty-card__title {
+    .timeline-item__title {
       font-family: var(--font-display);
       font-size: 1.1rem;
       font-weight: 700;
+      color: var(--color-ink);
     }
-
-    .specialty-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
-
-    .specialty-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: auto;
-      padding-top: 0.5rem;
-    }
-    .specialty-card__tags li {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
+    .timeline-item__company {
+      font-size: 0.85rem;
       color: var(--color-ink-muted);
-      background: var(--color-bg);
-      border-radius: 4px;
-      padding: 0.2rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item__desc {
+      font-size: 0.9rem;
+      color: var(--color-ink-muted);
     }
 
     /* ==========================================================
-       7. PROJETOS
+       8. PROJETOS
     ========================================================== */
     .project-card {
       background: var(--color-bg-surface);
@@ -458,35 +458,25 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .project-card__badge {
       font-family: var(--font-mono);
       font-size: 0.7rem;
       background: var(--color-bg);
       border: 1px solid var(--color-border);
-      color: var(--color-primary);
       padding: 0.15rem 0.5rem;
       border-radius: 4px;
     }
-    /* Variantes de cor da badge, alinhadas com a área do projeto */
     .project-card__badge--ia { color: var(--color-ia); border-color: var(--color-ia); }
-    .project-card__badge--automacao { color: var(--color-automacao); border-color: var(--color-automacao); }
-    .project-card__badge--backend { color: var(--color-backend); border-color: var(--color-backend); }
-    .project-card__badge--frontend { color: var(--color-frontend); border-color: var(--color-frontend); }
-
-    .project-card__links { display: flex; gap: 0.6rem; }
-    .project-card__links a { color: var(--color-ink-muted); }
-    .project-card__links a:hover { color: var(--color-primary); }
-    .project-card__links svg { width: 18px; height: 18px; }
+    .project-card__badge--ocr { color: var(--color-automacao); border-color: var(--color-automacao); }
+    .project-card__badge--crm { color: var(--color-marketing); border-color: var(--color-marketing); }
+    .project-card__badge--bpm { color: var(--color-backend); border-color: var(--color-backend); }
 
     .project-card__title {
       font-family: var(--font-display);
       font-size: 1.1rem;
       font-weight: 700;
     }
-
     .project-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
-
     .project-card__tags {
       display: flex;
       flex-wrap: wrap;
@@ -504,52 +494,33 @@
     }
 
     /* ==========================================================
-       8. CONTATO
+       9. CONTATO (JSON STYLE)
     ========================================================== */
-    .contato__lead {
-      color: var(--color-ink-muted);
-      max-width: 32rem;
-      margin-bottom: 2rem;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      max-width: 32rem;
-    }
-
-    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-
-    .form-field label {
+    .contact-terminal {
+      background: var(--color-bg-darker);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-dark);
+      padding: 1.5rem;
       font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--color-ink-muted);
+      font-size: 0.9rem;
+      color: var(--color-ink-on-dark);
+      overflow-x: auto;
+      max-width: 600px;
     }
-
-    .form-field input,
-    .form-field textarea {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      padding: 0.75rem 0.9rem;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      background: var(--color-bg-surface);
-      color: var(--color-ink);
+    .contact-terminal a {
+      color: var(--color-string, #C3E88D);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: text-decoration-color 0.2s;
     }
-    .form-field input:focus,
-    .form-field textarea:focus { border-color: var(--color-primary); }
-
-    .form-status {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      min-height: 1.2rem;
+    .contact-terminal a:hover {
+      text-decoration-color: var(--color-string, #C3E88D);
     }
-    .form-status.is-success { color: var(--color-success); }
-    .form-status.is-error { color: var(--color-accent); }
+    .json-key { color: var(--color-keyword, #C792EA); }
+    .json-bracket { color: #8B93A3; }
 
     /* ==========================================================
-       9. RODAPÉ ("status bar" de editor de código)
+       10. RODAPÉ ("STATUS BAR")
     ========================================================== */
     .status-bar {
       background: var(--color-bg-dark);
@@ -558,7 +529,6 @@
       font-family: var(--font-mono);
       font-size: 0.78rem;
     }
-
     .status-bar__inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -566,7 +536,6 @@
       flex-direction: column;
       gap: 0.75rem;
     }
-
     .status-bar__row {
       display: flex;
       flex-wrap: wrap;
@@ -574,9 +543,7 @@
       justify-content: space-between;
       gap: 0.75rem;
     }
-
     .status-bar__left { display: flex; align-items: center; gap: 0.5rem; }
-
     .status-bar__dot {
       width: 8px;
       height: 8px;
@@ -590,49 +557,38 @@
       70% { box-shadow: 0 0 0 6px rgba(43, 174, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(43, 174, 102, 0); }
     }
-
     .status-bar__socials { display: flex; gap: 0.9rem; }
     .status-bar__socials a { color: var(--color-ink-on-dark-muted); }
     .status-bar__socials a:hover { color: var(--color-ink-on-dark); }
     .status-bar__socials svg { width: 16px; height: 16px; }
-
     .status-bar__copy {
       color: #4D5667;
       border-top: 1px solid var(--color-border-dark);
       padding-top: 0.75rem;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- ============================================================
-       ARQUIVO: index.html
-       Estrutura semântica da página.
-  ============================================================ -->
-
   <!-- CABEÇALHO + NAVEGAÇÃO -->
   <header class="header">
     <div class="header__inner">
-      <a href="#" class="logo">&gt;<span>_</span>Marcelo_Ls_Lucas.ai</a>
+      <a href="#" class="logo">&gt;<span>_</span>Marcelo_Lucas.dev</a>
 
-      <!-- Botão exibido apenas no mobile para abrir o menu -->
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navTabs">
         <span class="menu-toggle__bar"></span>
         <span class="menu-toggle__bar"></span>
         <span class="menu-toggle__bar"></span>
       </button>
 
-      <!-- Navegação estilizada como abas de arquivos abertos em um editor.
-           Cada extensão remete à área correspondente (.py para IA, .yml para
-           automação, etc.) — veja a seção "Áreas de atuação" para o mesmo padrão. -->
       <nav>
         <ul class="nav-tabs" id="navTabs">
           <li><a href="#inicio" class="nav-tab is-active" data-tab><span class="nav-tab__dot"></span>inicio.js</a></li>
           <li><a href="#atuacao" class="nav-tab" data-tab><span class="nav-tab__dot"></span>atuacao.py</a></li>
-          <li><a href="#sobre" class="nav-tab" data-tab><span class="nav-tab__dot"></span>sobre.js</a></li>
-          <li><a href="#projetos" class="nav-tab" data-tab><span class="nav-tab__dot"></span>projetos.js</a></li>
-          <li><a href="#contato" class="nav-tab" data-tab><span class="nav-tab__dot"></span>contato.html</a></li>
+          <li><a href="#sobre" class="nav-tab" data-tab><span class="nav-tab__dot"></span>sobre.md</a></li>
+          <li><a href="#experiencia" class="nav-tab" data-tab><span class="nav-tab__dot"></span>experiencia.yml</a></li>
+          <li><a href="#projetos" class="nav-tab" data-tab><span class="nav-tab__dot"></span>projetos.json</a></li>
+          <li><a href="#contato" class="nav-tab" data-tab><span class="nav-tab__dot"></span>contato.json</a></li>
         </ul>
       </nav>
     </div>
@@ -640,9 +596,7 @@
 
   <main>
 
-    <!-- ========================================================
-         SEÇÃO 1 — HERO / APRESENTAÇÃO
-    ======================================================== -->
+    <!-- SEÇÃO 1: HERO -->
     <section id="inicio" class="hero">
       <div class="container">
         <div class="code-window">
@@ -650,30 +604,72 @@
             <span class="code-window__dot code-window__dot--red"></span>
             <span class="code-window__dot code-window__dot--yellow"></span>
             <span class="code-window__dot code-window__dot--green"></span>
-            <span class="code-window__filename">apresentacao.js</span>
+            <span class="code-window__filename">perfil.js</span>
           </div>
-          <pre class="code-block"><span class="code-comment">// olá, seja bem-vindo(a) ao meu portfólio</span>
+          <pre class="code-block"><span class="code-comment">// transformando processos manuais em sistemas inteligentes</span>
 <span class="code-keyword">const</span> <span class="code-var">perfil</span> = {
-  <!-- Altere seu nome aqui -->
   nome: <span class="code-string">"Marcelo Lucas"</span>,
   cargo: <span class="code-string">"<span id="typingRole"></span><span class="cursor">|</span>"</span>,
-  <!-- Altere suas áreas de atuação aqui -->
-  areas: [<span class="code-string">"IA"</span>, <span class="code-string">"Automação"</span>, <span class="code-string">"Backend"</span>, <span class="code-string">"Frontend"</span>],
-  foco_principal: <span class="code-ia">"Inteligência Artificial"</span>,
-  disponivel: <span class="code-bool">true</span>,
+  areas: [<span class="code-string">"IA"</span>, <span class="code-string">"Automação"</span>, <span class="code-string">"Dev Full-stack"</span>, <span class="code-string">"Marketing"</span>],
+  foco_principal: <span class="code-ia">"Inteligência Artificial & Automação Comercial"</span>,
+  disponivel_para_desafios: <span class="code-bool">true</span>,
 };</pre>
         </div>
 
         <div class="hero__actions">
-          <a href="#projetos" class="btn btn--primary">Ver projetos</a>
-          <a href="#contato" class="btn btn--ghost">Entrar em contato</a>
+          <a href="#projetos" class="btn btn--primary">Ver arquiteturas de projeto</a>
+          <a href="#contato" class="btn btn--ghost">Acessar contatos</a>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================
-         SEÇÃO 3 — SOBRE MIM
-    ======================================================== -->
+    <!-- SEÇÃO 2: ÁREAS DE ATUAÇÃO -->
+    <section id="atuacao" class="section atuacao">
+      <div class="container">
+        <p class="section__eyebrow">// areas-de-atuacao/</p>
+        <h2 class="section__title">O que eu faço</h2>
+
+        <div class="cards-grid">
+          <article class="specialty-card specialty-card--ia">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">modelos.py</span>
+            </div>
+            <h3 class="specialty-card__title">Inteligência Artificial</h3>
+            <p class="specialty-card__desc">Desenvolvimento de soluções interativas com IA: integração de modelos (Gemini), chatbots recomendadores e tecnologias de OCR para extração de dados.</p>
+            <ul class="specialty-card__tags"><li>Python</li><li>LLMs</li><li>Machine Learning</li><li>OCR</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--automacao">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">fluxos.yml</span>
+            </div>
+            <h3 class="specialty-card__title">Automação de Processos</h3>
+            <p class="specialty-card__desc">Arquitetura de pipelines end-to-end. Transformo documentos não estruturados e tarefas repetitivas em regras de negócio otimizadas.</p>
+            <ul class="specialty-card__tags"><li>Power Platform</li><li>n8n</li><li>Ansible</li><li>BPM</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--backend">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">sistemas.js</span>
+            </div>
+            <h3 class="specialty-card__title">Desenvolvimento Web</h3>
+            <p class="specialty-card__desc">Criação de landing pages, estruturação de dados em SQL, orquestração de APIs e provisionamento de infraestrutura em servidores Linux e Docker.</p>
+            <ul class="specialty-card__tags"><li>JavaScript</li><li>PHP</li><li>SQL</li><li>Docker</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--marketing">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">crm.php</span>
+            </div>
+            <h3 class="specialty-card__title">Marketing & CRM</h3>
+            <p class="specialty-card__desc">Configuração e administração de CRMs, criação de automações conversacionais para geração de leads e qualificação de base de clientes.</p>
+            <ul class="specialty-card__tags"><li>HubSpot</li><li>ManyChat</li><li>Integrações</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: SOBRE MIM -->
     <section id="sobre" class="section sobre">
       <div class="container">
         <p class="section__eyebrow">// sobre-mim.md</p>
@@ -681,308 +677,165 @@
 
         <div class="sobre__content">
           <div class="sobre__photo">
-            <!-- Insira sua foto aqui: troque o "src" abaixo pelo caminho da sua imagem -->
-            <img src="imagens/MarceloLucas.jpeg" alt="Marcelo Lucas" width="400" height="400">
+            <!-- Coloque sua foto real neste caminho -->
+            <img src="imagens/MarceloLucas.jpeg" alt="Marcelo Lucas" width="220" height="220" onerror="this.src='https://via.placeholder.com/220x220/14181F/FFFFFF?text=Marcelo'">
           </div>
 
           <div class="sobre__text">
-            <!-- Altere o texto de apresentação aqui -->
-            <p>
-              Olá! Sou apaixonado(a) por Inteligência Artificial e por tudo que ela
-              torna possível: automações que economizam horas de trabalho manual,
-              sistemas mais inteligentes e produtos que realmente entendem quem os usa.
-            </p>
-            <p>
-              Atuo de ponta a ponta — da IA e automação de processos ao backend e
-              front-end — para transformar ideias em soluções completas, do modelo
-              até a interface que o usuário final toca.
-            </p>
+            <p>Desenvolvedor focado na resolução de problemas operacionais e de negócios. Minha jornada profissional é construída sobre uma fundação sólida: comecei garantindo o funcionamento de processos pesados de TI e infraestrutura (ServiceNow, Zabbix, Ansible) e evoluí para a construção de soluções ativas e inteligentes.</p>
+            <p>Hoje, atuo desenhando arquiteturas end-to-end, unindo <strong>Inteligência Artificial</strong>, <strong>Desenvolvimento Web</strong> e ecossistemas de <strong>Automação Comercial</strong>. Seja provisionando um servidor Docker ou criando um pipeline de OCR, meu objetivo final é sempre o mesmo: converter processos complexos em eficiência, receita e tempo salvo.</p>
 
-            <!-- Lista de informações rápidas — edite os valores dentro de cada <span> -->
             <ul class="sobre__meta">
-              <li>localizacao: <span>Sua Cidade, Brasil</span></li>
-              <li>foco: <span>Inteligência Artificial & Automação</span></li>
-              <li>disponibilidade: <span>Aberto a novas oportunidades</span></li>
+              <li>formação_academica: <span>Ciência da Computação — Universidade Presbiteriana Mackenzie</span></li>
+              <li>idiomas: <span>Inglês (Avançado), Espanhol (Básico)</span></li>
+              <li>foco_de_carreira: <span>Inovação, Inteligência Artificial e Automação</span></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================
-         SEÇÃO 4 — MEUS PROJETOS
-    ======================================================== -->
+    <!-- SEÇÃO 4: EXPERIÊNCIA (TIMELINE) -->
+    <section id="experiencia" class="section">
+      <div class="container">
+        <p class="section__eyebrow">// hist_profissional.yml</p>
+        <h2 class="section__title">Experiência Profissional</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-item__date">Jan/2026 — Atual</span>
+            <h3 class="timeline-item__title">Commercial Automation Developer</h3>
+            <p class="timeline-item__company">DigiSystem</p>
+            <p class="timeline-item__desc">Implementação de melhorias contínuas via automações e estruturação de dados. Criação de pipelines OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-item__date">Mai/2025 — Dez/2025</span>
+            <h3 class="timeline-item__title">HaaS (Hardware as a Service) - Sustentação</h3>
+            <p class="timeline-item__company">DigiSystem</p>
+            <p class="timeline-item__desc">Sustentação do Cervello Service Management. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-item__date">Jan/2025 — Mai/2025</span>
+            <h3 class="timeline-item__title">Infraestrutura OCS (Windows Server)</h3>
+            <p class="timeline-item__company">T-Systems</p>
+            <p class="timeline-item__desc">Provisionamento e dimensionamento de servidores. Automação via Ansible para VMs e patches, monitoramento com Zabbix e administração de Active Directory/GPOs.</p>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-item__date">2023 — Jan/2025</span>
+            <h3 class="timeline-item__title">Backoffice OCS</h3>
+            <p class="timeline-item__company">T-Systems</p>
+            <p class="timeline-item__desc">Monitoramento e controle de tickets no ServiceNow. Defesa diária de processos em reuniões de CAB, garantindo o ciclo de vida e a governança ITSM de mudanças de infraestrutura.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: PROJETOS -->
     <section id="projetos" class="section projetos">
       <div class="container">
-        <p class="section__eyebrow">// projetos/</p>
-        <h2 class="section__title">Meus Projetos</h2>
+        <p class="section__eyebrow">// meus-projetos/</p>
+        <h2 class="section__title">Arquitetura de Soluções</h2>
 
         <div class="cards-grid">
 
-          <!-- Card de projeto — copie este bloco <article> para adicionar mais projetos -->
           <article class="project-card">
             <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--ia">.PYTHON</span>
-              <div class="project-card__links">
-                <a href="#" aria-label="Ver código no GitHub">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                </a>
-                <a href="#" aria-label="Ver projeto online">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
-                </a>
-              </div>
+              <span class="project-card__badge project-card__badge--ia">.AI</span>
             </div>
-            <!-- Altere o nome e a descrição do projeto aqui -->
-            <h3 class="project-card__title">Provador Virtual</h3>
-            <p class="project-card__desc">Chatbot inteligente com integração a uma API de criação de imagens onde seu objetivo mostrar aos usuarios como os produtos ficariam neles.</p>
-            <ul class="project-card__tags">
-              <li>Integração de API</li>
-              <li>Gemini Model</li>
-              <li>NuvemShop</li>
-              <li>Hostinger</li>
-              <li>N8N</li>
-              <li>Docker</li>
-              <li>Linux Ubuntu</li>
-            </ul>
+            <h3 class="project-card__title">Provador Virtual Inteligente</h3>
+            <p class="project-card__desc">Sistema interativo com IA (Gemini) focado na recomendação e prova de produtos. Orquestração via n8n e Typebot, com deploy em infraestrutura própria via Docker/Ubuntu, integrado a plataformas de e-commerce.</p>
+            <ul class="project-card__tags"><li>Gemini</li><li>n8n</li><li>Typebot</li><li>Docker</li><li>NuvemShop</li></ul>
           </article>
 
           <article class="project-card">
             <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--automacao">.YML</span>
-              <div class="project-card__links">
-                <a href="#" aria-label="Ver código no GitHub">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                </a>
-                <a href="#" aria-label="Ver projeto online">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
-                </a>
-              </div>
+              <span class="project-card__badge project-card__badge--ocr">.PY / .OCR</span>
             </div>
-            <h3 class="project-card__title">Pipeline de Automação</h3>
-            <p class="project-card__desc">Fluxo automatizado que conecta formulários, planilhas e e-mails, eliminando tarefas manuais repetitivas.</p>
-            <ul class="project-card__tags">
-              <li>n8n</li>
-              <li>Webhooks</li>
-              <li>Python</li>
-            </ul>
+            <h3 class="project-card__title">Extração Inteligente de Documentos</h3>
+            <p class="project-card__desc">Pipeline completo de processamento: transforma documentos não estruturados (PDFs) em informações acionáveis via tecnologias OCR. Modelagem das regras de negócio integrada ao ecossistema Power Platform.</p>
+            <ul class="project-card__tags"><li>Python</li><li>OCR</li><li>Power Automate</li><li>Power Apps</li></ul>
           </article>
 
           <article class="project-card">
             <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--backend">.NODE</span>
-              <div class="project-card__links">
-                <a href="#" aria-label="Ver código no GitHub">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                </a>
-                <a href="#" aria-label="Ver projeto online">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
-                </a>
-              </div>
+              <span class="project-card__badge project-card__badge--crm">.CRM</span>
             </div>
-            <h3 class="project-card__title">API para Integração de Dados</h3>
-            <p class="project-card__desc">API REST que centraliza e organiza dados de diferentes sistemas, servindo de base para outras aplicações.</p>
-            <ul class="project-card__tags">
-              <li>Node.js</li>
-              <li>Express</li>
-              <li>PostgreSQL</li>
-            </ul>
+            <h3 class="project-card__title">Automação de Marketing & Leads</h3>
+            <p class="project-card__desc">Ecossistema end-to-end de atração e gestão comercial. Configuração de fluxos no ManyChat para conversão inicial, criação de Landing Pages otimizadas e pipeline de qualificação sincronizado nativamente no HubSpot.</p>
+            <ul class="project-card__tags"><li>HubSpot</li><li>ManyChat</li><li>JavaScript</li><li>PHP</li></ul>
           </article>
 
           <article class="project-card">
             <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--frontend">.REACT</span>
-              <div class="project-card__links">
-                <a href="#" aria-label="Ver código no GitHub">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-                </a>
-                <a href="#" aria-label="Ver projeto online">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5h5v5M19 5 10 14M8 5H5v14h14v-3"/></svg>
-                </a>
-              </div>
+              <span class="project-card__badge project-card__badge--bpm">.BPM</span>
             </div>
-            <h3 class="project-card__title">Dashboard de Métricas</h3>
-            <p class="project-card__desc">Interface para visualizar, em tempo real, os resultados gerados pelos modelos de IA e automações.</p>
-            <ul class="project-card__tags">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Recharts</li>
-            </ul>
+            <h3 class="project-card__title">Automação de Service Management</h3>
+            <p class="project-card__desc">Redução do overhead operacional do departamento de HaaS. Mapeamento de BPM rigoroso convertido em chatbots internos, rotinas de banco de dados (Macros SQL) e fluxos validados em testes sistêmicos.</p>
+            <ul class="project-card__tags"><li>Cervello</li><li>SQL</li><li>Chatbots</li><li>BPM</li></ul>
           </article>
 
         </div>
       </div>
     </section>
-    <!-- ========================================================
-         SEÇÃO 2 — ÁREAS DE ATUAÇÃO
-         Cada card representa uma especialidade, no formato de um
-         "arquivo" aberto no editor — a extensão remete à área.
-    ======================================================== -->
-    <section id="atuacao" class="section atuacao">
-      <div class="container">
-        <p class="section__eyebrow">// areas-de-atuacao/</p>
-        <h2 class="section__title">O que eu faço</h2>
 
-        <div class="cards-grid">
-
-          <!-- Card em destaque: Inteligência Artificial (foco principal) -->
-          <article class="specialty-card specialty-card--ia">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">modelo.py</span>
-              <span class="specialty-card__highlight">Foco principal</span>
-            </div>
-            <!-- Altere o título e a descrição desta área aqui -->
-            <h3 class="specialty-card__title">Inteligência Artificial</h3>
-            <p class="specialty-card__desc">
-              Desenvolvimento de soluções com IA: integração de modelos de linguagem,
-              chatbots inteligentes, automação cognitiva e aplicações de machine learning.
-            </p>
-            <ul class="specialty-card__tags">
-              <li>Python</li>
-              <li>LLMs</li>
-              <li>LangChain</li>
-              <li>Machine Learning</li>
-            </ul>
-          </article>
-
-          <article class="specialty-card specialty-card--automacao">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">fluxo.yml</span>
-            </div>
-            <h3 class="specialty-card__title">Automação de Processos</h3>
-            <p class="specialty-card__desc">
-              Criação de fluxos automatizados que eliminam tarefas repetitivas e conectam
-              ferramentas diferentes, economizando tempo e reduzindo erros manuais.
-            </p>
-            <ul class="specialty-card__tags">
-              <li>n8n</li>
-              <li>Zapier</li>
-              <li>APIs</li>
-              <li>Python</li>
-            </ul>
-          </article>
-
-          <article class="specialty-card specialty-card--backend">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">servidor.js</span>
-            </div>
-            <h3 class="specialty-card__title">Backend & APIs</h3>
-            <p class="specialty-card__desc">
-              Construção de APIs e arquiteturas de servidor robustas, escaláveis e
-              preparadas para sustentar produtos e integrações de IA em produção.
-            </p>
-            <ul class="specialty-card__tags">
-              <li>Node.js</li>
-              <li>Express</li>
-              <li>PostgreSQL</li>
-              <li>Docker</li>
-            </ul>
-          </article>
-
-          <article class="specialty-card specialty-card--frontend">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">interface.tsx</span>
-            </div>
-            <h3 class="specialty-card__title">Front-end</h3>
-            <p class="specialty-card__desc">
-              Interfaces acessíveis, responsivas e intuitivas que tornam soluções
-              complexas — como produtos de IA — simples de usar no dia a dia.
-            </p>
-            <ul class="specialty-card__tags">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>CSS</li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-    
-
-    <!-- ========================================================
-         SEÇÃO 5 — CONTATO
-    ======================================================== -->
+    <!-- SEÇÃO 6: CONTATO (Terminal JSON Form) -->
     <section id="contato" class="section contato">
       <div class="container">
-        <p class="section__eyebrow">// contato.html</p>
-        <h2 class="section__title">Vamos conversar</h2>
-        <p class="contato__lead">
-          <!-- Altere o texto de chamada para contato aqui -->
-          Tem um projeto de IA, uma automação para construir ou uma ideia em mente?
-          Preencha o formulário abaixo e eu retorno o quanto antes.
-        </p>
-
-        <!-- Formulário front-end apenas: sem envio real ainda.
-             Para conectar a um backend, troque o JS de envio (ver script.js)
-             por uma integração real, como Formspree, EmailJS ou uma API própria. -->
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-field">
-            <label for="nome">nome</label>
-            <input type="text" id="nome" name="nome" required placeholder="Como podemos te chamar?">
-          </div>
-          <div class="form-field">
-            <label for="email">email</label>
-            <input type="email" id="email" name="email" required placeholder="seu@email.com">
-          </div>
-          <div class="form-field">
-            <label for="mensagem">mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Conte um pouco sobre o que você precisa..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn--primary">Enviar mensagem $</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
+        <p class="section__eyebrow">// conexao.bash</p>
+        <h2 class="section__title">Iniciar Conexão</h2>
+        
+        <div class="contact-terminal">
+<pre><code><span class="code-comment">// Execute um ping para batermos um papo sobre tecnologia, IA ou automação.</span>
+<span class="json-bracket">{</span>
+  <span class="json-key">"nome"</span>: <span class="code-string">"Marcelo Lucas"</span>,
+  <span class="json-key">"email"</span>: <a href="mailto:marceloluis.simonelucas@gmail.com">"marceloluis.simonelucas@gmail.com"</a>,
+  <span class="json-key">"telefone"</span>: <a href="https://wa.me/5511985054755" target="_blank">"+55 11 98505-4755"</a>,
+  <span class="json-key">"redes_sociais"</span>: <span class="json-bracket">{</span>
+    <span class="json-key">"linkedin"</span>: <a href="https://linkedin.com/in/marcelo-lucas" target="_blank">"linkedin.com/in/marcelo-lucas"</a>
+  <span class="json-bracket">}</span>,
+  <span class="json-key">"status"</span>: <span class="code-bool">"Aberto a novas oportunidades 🚀"</span>
+<span class="json-bracket">}</span></code></pre>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ========================================================
-       RODAPÉ — "status bar" no estilo de um editor de código
-  ======================================================== -->
+  <!-- RODAPÉ ("STATUS BAR") -->
   <footer class="status-bar">
     <div class="status-bar__inner">
       <div class="status-bar__row">
         <div class="status-bar__left">
           <span class="status-bar__dot" aria-hidden="true"></span>
-          <span>Disponível para novos projetos</span>
+          <span>Deploy concluído. Sistemas operacionais.</span>
         </div>
 
         <div class="status-bar__row" style="gap: 1.25rem;">
           <span id="localTime"></span>
 
-          <!-- Altere os links das suas redes sociais aqui -->
           <div class="status-bar__socials">
-            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2.13c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.74.4-1.26.72-1.55-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.42.36.78 1.08.78 2.17v3.22c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/marcelo-lucas" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
             </a>
-            <a href="mailto:seuemail@exemplo.com" aria-label="E-mail">
+            <a href="mailto:marceloluis.simonelucas@gmail.com" aria-label="E-mail">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3V5Zm0 0 9 7 9-7"/></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Altere o nome no copyright aqui -->
       <p class="status-bar__copy">© <span id="currentYear"></span> Marcelo Lucas. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- ============================================================
-       ARQUIVO: script.js
-       (Em um projeto real, mova todo o conteúdo desta tag <script>
-        para um arquivo script.js separado e linke no fim do <body> com:
-        <script src="script.js"></script>)
-  ============================================================ -->
+  <!-- SCRIPTS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      /* --------------------------------------------------------
-         1. MENU MOBILE (abrir/fechar abas de navegação)
-      -------------------------------------------------------- */
+      // 1. Menu Mobile
       const menuToggle = document.getElementById('menuToggle');
       const navTabs = document.getElementById('navTabs');
 
@@ -992,7 +845,6 @@
         menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
       });
 
-      // Fecha o menu mobile automaticamente ao clicar em uma aba
       const navTabLinks = document.querySelectorAll('[data-tab]');
       navTabLinks.forEach((link) => {
         link.addEventListener('click', () => {
@@ -1001,11 +853,8 @@
         });
       });
 
-      /* --------------------------------------------------------
-         2. ABA ATIVA CONFORME A SEÇÃO VISÍVEL NA TELA
-      -------------------------------------------------------- */
+      // 2. Aba Ativa via Scroll
       const sections = document.querySelectorAll('main section[id]');
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -1014,19 +863,17 @@
             });
           }
         });
-      }, { rootMargin: '-45% 0px -45% 0px' }); // dispara quando a seção cruza o centro da tela
+      }, { rootMargin: '-45% 0px -45% 0px' });
 
       sections.forEach((section) => observer.observe(section));
 
-      /* --------------------------------------------------------
-         3. EFEITO DE DIGITAÇÃO NO CARGO (HERO)
-         Altere a lista "cargos" abaixo para trocar os textos exibidos.
-      -------------------------------------------------------- */
+      // 3. Efeito de Digitação (Hero)
       const typingEl = document.getElementById('typingRole');
       const cargos = [
-        'Engenheiro(a) de IA',
-        'Apaixonado(a) por automação',
-        'Full-stack: backend & frontend'
+        'Engenheiro de IA',
+        'Especialista em Automação',
+        'Arquiteto de Soluções',
+        'Desenvolvedor Full-stack'
       ];
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1044,7 +891,7 @@
             typingEl.textContent = textoAtual.slice(0, charIndex);
             if (charIndex === textoAtual.length) {
               isDeleting = true;
-              setTimeout(digitar, 1800); // pausa antes de começar a apagar
+              setTimeout(digitar, 1800); 
               return;
             }
           } else {
@@ -1055,19 +902,14 @@
               cargoIndex = (cargoIndex + 1) % cargos.length;
             }
           }
-
           setTimeout(digitar, isDeleting ? 40 : 80);
         }
-
         digitar();
       } else if (typingEl) {
-        // Sem animação para quem prefere menos movimento: mostra o primeiro cargo direto
         typingEl.textContent = cargos[0];
       }
 
-      /* --------------------------------------------------------
-         4. RELÓGIO LOCAL E ANO ATUAL NO RODAPÉ
-      -------------------------------------------------------- */
+      // 4. Relógio Local e Ano
       const localTimeEl = document.getElementById('localTime');
       const currentYearEl = document.getElementById('currentYear');
 
@@ -1079,36 +921,8 @@
       }
 
       atualizarRelogio();
-      setInterval(atualizarRelogio, 1000 * 30); // atualiza a cada 30s
+      setInterval(atualizarRelogio, 1000 * 30);
       currentYearEl.textContent = new Date().getFullYear();
-
-      /* --------------------------------------------------------
-         5. FORMULÁRIO DE CONTATO (validação simples, sem backend)
-         Quando integrar com um serviço real, troque o bloco do
-         setTimeout abaixo pela chamada de envio de fato (fetch, etc.)
-      -------------------------------------------------------- */
-      const form = document.getElementById('contactForm');
-      const formStatus = document.getElementById('formStatus');
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        if (!form.checkValidity()) {
-          formStatus.textContent = '✖ Preencha todos os campos corretamente.';
-          formStatus.className = 'form-status is-error';
-          return;
-        }
-
-        formStatus.textContent = 'Enviando...';
-        formStatus.className = 'form-status';
-
-        // Simulação de envio — substitua por uma integração real quando for o caso
-        setTimeout(() => {
-          formStatus.textContent = '✔ Mensagem enviada! Em breve entro em contato.';
-          formStatus.className = 'form-status is-success';
-          form.reset();
-        }, 900);
-      });
 
     });
   </script>

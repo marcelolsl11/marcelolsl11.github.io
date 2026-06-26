@@ -6,881 +6,1193 @@
   <title>Marcelo Lucas | Engenharia de Dados, IA & Automação</title>
   <meta name="description" content="Portfólio de Marcelo Lucas: Desenvolvedor Full-Cycle com foco em Dados, Backend, Inteligência Artificial, Automação de Processos e Marketing." />
 
-  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
-       1. VARIÁVEIS GLOBAIS (DESIGN TOKENS)
+       1. DESIGN TOKENS (FROSTED GLASS & EDITORIAL)
     ========================================================== */
     :root {
-      /* Cores de Fundo */
-      --color-bg: #F8F9FB;
-      --color-bg-surface: #FFFFFF;
-      --color-bg-dark: #14181F;
-      --color-bg-darker: #0E1116;
+      /* Background Mesh & Colors */
+      --bg-color-1: #EBF4F6;
+      --bg-color-2: #F3E8FF;
+      --bg-color-3: #E0F2FE;
+      
+      /* Glassmorphism */
+      --glass-bg: rgba(255, 255, 255, 0.45);
+      --glass-bg-hover: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --glass-shadow: 0 12px 40px rgba(15, 23, 42, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      --glass-blur: blur(16px);
+      
+      /* Typography Colors */
+      --color-text-main: #0F172A;
+      --color-text-muted: #475569;
+      --color-text-light: #94A3B8;
+      
+      /* Accent Colors (Refined for Light Theme) */
+      --color-accent-1: #2563EB; /* Blue */
+      --color-accent-2: #7C3AED; /* Purple */
+      --color-accent-3: #059669; /* Emerald */
+      
+      /* Area Tags */
+      --tag-ia: rgba(124, 58, 237, 0.1); --tag-ia-text: #6D28D9;
+      --tag-auto: rgba(217, 119, 6, 0.1); --tag-auto-text: #B45309;
+      --tag-back: rgba(37, 99, 235, 0.1); --tag-back-text: #1D4ED8;
+      --tag-mkt: rgba(16, 185, 129, 0.1); --tag-mkt-text: #047857;
+      --tag-data: rgba(219, 39, 119, 0.1); --tag-data-text: #BE185D;
+      --tag-web: rgba(14, 165, 233, 0.1); --tag-web-text: #0369A1;
 
-      /* Cores de Texto */
-      --color-ink: #14181F;
-      --color-ink-muted: #5B6472;
-      --color-ink-on-dark: #E7EAF0;
-      --color-ink-on-dark-muted: #8B93A3;
+      /* Syntax Highlighting (Light Theme) */
+      --syntax-bg: rgba(255, 255, 255, 0.7);
+      --syntax-comment: #94A3B8;
+      --syntax-keyword: #7C3AED;
+      --syntax-string: #059669;
+      --syntax-var: #2563EB;
+      --syntax-bracket: #475569;
 
-      /* Cores Principais */
-      --color-primary: #3454D1;
-      --color-primary-dark: #28419E;
-      --color-accent: #FF6B4A;
-      --color-success: #2BAE66;
+      /* Typography */
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
 
-      /* Cores por Área de Atuação e Badges */
-      --color-ia: #8B5CF6;        /* IA - Violeta */
-      --color-automacao: #D9A62E; /* Automação/Java - Âmbar */
-      --color-backend: #3454D1;   /* Backend/C/BPM - Índigo */
-      --color-marketing: #10B981; /* Marketing/CRM - Esmeralda */
-      --color-data: #E83E8C;      /* Dados/Jupyter - Rosa */
-      --color-web: #0ea5e9;       /* Web - Azul Claro */
-
-      /* Bordas e Sombras */
-      --color-border: #E2E5EA;
-      --color-border-dark: #2A313D;
-      --shadow-card: 0 1px 2px rgba(20, 24, 31, 0.04), 0 8px 24px rgba(20, 24, 31, 0.06);
-
-      /* Tipografia */
-      --font-display: "Space Grotesk", "Segoe UI", sans-serif;
-      --font-body: "Inter", "Segoe UI", sans-serif;
-      --font-mono: "JetBrains Mono", "Courier New", monospace;
-
-      /* Espaçamento */
-      --max-width: 1100px;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --space-section: 5rem;
+      /* Spacing & Radii */
+      --max-w: 1200px;
+      --radius-sm: 8px;
+      --radius-md: 20px;
+      --radius-pill: 100px;
+      --spacing-section: 8rem;
     }
 
     /* ==========================================================
-       2. RESET BÁSICO
+       2. RESET & GLOBAL
     ========================================================== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body, h1, h2, h3, h4, p, ul, figure { margin: 0; }
-    img { max-width: 100%; display: block; }
-    ul { padding: 0; list-style: none; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-    }
-
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    
     body {
-      background: var(--color-bg);
-      color: var(--color-ink);
       font-family: var(--font-body);
+      color: var(--color-text-main);
+      background-color: #F8FAFC;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    /* Background Mesh/Gradients */
+    .bg-mesh {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -2;
+      background: radial-gradient(circle at 15% 50%, var(--bg-color-1), transparent 50%),
+                  radial-gradient(circle at 85% 30%, var(--bg-color-2), transparent 50%),
+                  radial-gradient(circle at 50% 80%, var(--bg-color-3), transparent 50%);
+      filter: blur(60px);
+      opacity: 0.7;
+      animation: meshShift 20s ease-in-out infinite alternate;
+    }
+    
+    /* Noise texture overlay for organic feel */
+    .noise {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      opacity: 0.4;
+      pointer-events: none;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    @keyframes meshShift {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1) translate(-2%, 2%); }
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    
     .container {
-      width: 100%;
-      max-width: var(--max-width);
+      max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
 
-    .section { padding: var(--space-section) 0; }
-
-    .section__eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--color-primary);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .section__title {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-
-    /* ==========================================================
-       3. CABEÇALHO / NAVEGAÇÃO
-    ========================================================== */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(248, 249, 251, 0.9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 1.25rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .logo span { color: var(--color-primary); }
-
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      padding: 0.5rem;
-    }
-    .menu-toggle__bar {
-      width: 22px;
-      height: 2px;
-      background: var(--color-ink);
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) { opacity: 0; }
-    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-    .nav-tabs {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--color-bg-surface);
-      border-bottom: 1px solid var(--color-border);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .nav-tabs.is-open { max-height: 350px; }
-
-    .nav-tab {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      padding: 0.9rem 1.25rem;
-      border-bottom: 1px solid var(--color-border);
-      color: var(--color-ink-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .nav-tab__dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--color-border);
-    }
-    .nav-tab.is-active {
-      color: var(--color-ink);
-      background: var(--color-bg);
-      box-shadow: inset 3px 0 0 var(--color-primary);
-    }
-    .nav-tab.is-active .nav-tab__dot { background: var(--color-accent); }
-
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-      .nav-tabs {
-        position: static;
-        flex-direction: row;
-        max-height: none;
-        background: none;
-        border-bottom: none;
-        overflow: visible;
-      }
-      .nav-tab {
-        border-bottom: 2px solid transparent;
-        padding: 0.5rem 0.9rem;
-      }
-      .nav-tab.is-active {
-        box-shadow: none;
-        border-bottom: 2px solid var(--color-primary);
-      }
-    }
-
-    /* ==========================================================
-       4. HERO / APRESENTAÇÃO
-    ========================================================== */
-    .hero { padding: 3.5rem 0 var(--space-section); }
-
-    .code-window {
-      background: var(--color-bg-dark);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-    }
-
-    .code-window__bar {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1rem;
-      background: #1B212B;
-      border-bottom: 1px solid var(--color-border-dark);
-    }
-
-    .code-window__dot { width: 10px; height: 10px; border-radius: 50%; }
-    .code-window__dot--red { background: #FF5F57; }
-    .code-window__dot--yellow { background: #FEBC2E; }
-    .code-window__dot--green { background: #28C840; }
-
-    .code-window__filename {
+    /* Editorial Typography Refinements */
+    h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.03em; line-height: 1.1; }
+    .section-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--color-ink-on-dark-muted);
-      margin-left: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-accent-1);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      margin-bottom: 3rem;
+      color: var(--color-text-main);
     }
 
-    .code-block {
+    /* Micro-interaction setup */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================
+       3. NAVIGATION (FLOATING GLASS PILL)
+    ========================================================== */
+    .nav-wrapper {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: 90%;
+      max-width: 800px;
+      pointer-events: none; /* Let clicks pass through empty space */
+    }
+
+    .nav-glass {
+      pointer-events: auto;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--glass-shadow);
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
       font-family: var(--font-mono);
+      font-weight: 500;
       font-size: 0.85rem;
-      color: var(--color-ink-on-dark);
-      padding: 1.5rem 1.25rem;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      line-height: 1.7;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
     }
-    .code-comment { color: #6B7585; font-style: italic; }
-    .code-keyword { color: #C792EA; }
-    .code-var { color: #82AAFF; }
-    .code-string { color: #C3E88D; }
-    .code-bool { color: #FF8B7B; }
-    .code-ia { color: var(--color-ia); font-weight: 700; }
+    .nav-logo span { color: var(--color-accent-1); font-weight: 700; }
 
-    .cursor {
-      display: inline-block;
-      color: var(--color-accent);
-      animation: blink 1s steps(1) infinite;
+    .nav-links {
+      display: none;
+      gap: 0.25rem;
     }
-    @keyframes blink { 50% { opacity: 0; } }
+    
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-pill);
+      color: var(--color-text-muted);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-link:hover { color: var(--color-text-main); background: rgba(255,255,255,0.5); }
+    .nav-link.is-active {
+      background: #fff;
+      color: var(--color-text-main);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-    .hero__actions {
+    /* Mobile menu button */
+    .menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      width: 32px;
+      height: 32px;
+      position: relative;
+      cursor: pointer;
+    }
+    .menu-btn span {
+      position: absolute;
+      width: 20px;
+      height: 1.5px;
+      background: var(--color-text-main);
+      left: 6px;
+      transition: all 0.3s ease;
+    }
+    .menu-btn span:nth-child(1) { top: 11px; }
+    .menu-btn span:nth-child(2) { top: 19px; }
+    
+    .menu-btn.is-open span:nth-child(1) { top: 15px; transform: rotate(45deg); }
+    .menu-btn.is-open span:nth-child(2) { top: 15px; transform: rotate(-45deg); }
+
+    /* Mobile Dropdown */
+    .mobile-menu {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 0;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--glass-shadow);
+      padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
+      gap: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
     }
-    @media (min-width: 600px) {
-      .hero__actions { flex-direction: row; }
+    .mobile-menu.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .mobile-menu .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (min-width: 860px) {
+      .menu-btn { display: none; }
+      .nav-links { display: flex; }
+    }
+
+    /* ==========================================================
+       4. HERO & GLASS CODE EDITOR
+    ========================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.04em;
+    }
+    .hero-text h1 span {
+      display: block;
+      color: var(--color-text-muted);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      margin-top: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
     }
 
     .btn {
       font-family: var(--font-mono);
-      font-size: 0.9rem;
-      padding: 0.8rem 1.4rem;
-      border-radius: var(--radius-sm);
-      text-align: center;
-      border: 1px solid transparent;
-      transition: transform 0.15s ease, background 0.15s ease;
-      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-pill);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn--primary { background: var(--color-primary); color: #fff; }
-    .btn--primary:hover { background: var(--color-primary-dark); }
-    .btn--ghost { border-color: var(--color-border); color: var(--color-ink); }
-    .btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .btn-primary {
+      background: var(--color-text-main);
+      color: #fff;
+      border: 1px solid var(--color-text-main);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-text-main);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      color: var(--color-text-main);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.8);
+      transform: translateY(-2px);
+    }
 
-    /* ==========================================================
-       5. ÁREAS DE ATUAÇÃO
-    ========================================================== */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+    /* Asymmetric UI: The Code Glass */
+    .glass-editor-wrapper {
+      position: relative;
     }
-    @media (min-width: 700px) {
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    /* decorative blur blob behind editor */
+    .glass-editor-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -10%; left: -10%;
+      width: 120%; height: 120%;
+      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(124,58,237,0.1));
+      filter: blur(40px);
+      border-radius: 50%;
+      z-index: -1;
     }
 
-    .specialty-card {
-      background: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-left: 4px solid var(--color-border);
+    .glass-code-editor {
+      background: var(--syntax-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-md);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+      box-shadow: var(--glass-shadow);
+      overflow: hidden;
+      transform: rotate(-1deg); /* Intentional human asymmetry */
+      transition: transform 0.5s ease;
     }
-    .specialty-card--data { border-left-color: var(--color-data); }
-    .specialty-card--backend { border-left-color: var(--color-backend); }
-    .specialty-card--ia { border-left-color: var(--color-ia); }
-    .specialty-card--automacao { border-left-color: var(--color-automacao); }
-    .specialty-card--web { border-left-color: var(--color-web); }
-    .specialty-card--marketing { border-left-color: var(--color-marketing); }
+    .glass-code-editor:hover { transform: rotate(0deg) translateY(-5px); }
 
-    .specialty-card__top {
+    .editor-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.3);
     }
-    .specialty-card__file {
+    .editor-dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+    .dot:nth-child(1) { background: #FF5F56; }
+    .dot:nth-child(2) { background: #FFBD2E; }
+    .dot:nth-child(3) { background: #27C93F; }
+    .editor-filename {
+      margin-left: auto;
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--color-ink-muted);
+      color: var(--color-text-muted);
     }
-    .specialty-card__title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .specialty-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
-    .specialty-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: auto;
-      padding-top: 0.5rem;
-    }
-    .specialty-card__tags li {
+
+    .editor-body {
+      padding: 2rem 1.5rem;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--color-ink-muted);
-      background: var(--color-bg);
-      border-radius: 4px;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      overflow-x: auto;
+      color: var(--color-text-main);
+    }
+    
+    .hl-comment { color: var(--syntax-comment); font-style: italic; }
+    .hl-keyword { color: var(--syntax-keyword); font-weight: 500; }
+    .hl-var { color: var(--syntax-var); }
+    .hl-string { color: var(--syntax-string); }
+    .hl-ia { color: var(--color-accent-2); font-weight: 600; background: rgba(124,58,237,0.08); padding: 0 4px; border-radius: 4px; }
+    
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: var(--color-text-main);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (min-width: 992px) {
+      .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+      .glass-editor-wrapper { margin-left: 2rem; }
     }
 
     /* ==========================================================
-       6. SOBRE MIM
+       5. ÁREAS DE ATUAÇÃO (BROKEN GRID)
     ========================================================== */
-    .sobre__content {
+    .section { padding: var(--spacing-section) 0; }
+
+    /* Asymmetric CSS Grid to break the generic AI mold */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Subtle inner glow on hover */
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .glass-card:hover {
+      transform: translateY(-8px);
+      border-color: #fff;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+    .glass-card:hover::after { opacity: 1; }
+
+    .card-file {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .glass-card h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .glass-card p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.8);
+      color: var(--color-text-muted);
+    }
+
+    /* Specific coloring logic mapped from original */
+    .card--data .tag { background: var(--tag-data); color: var(--tag-data-text); border: none; }
+    .card--back .tag { background: var(--tag-back); color: var(--tag-back-text); border: none; }
+    .card--ia .tag { background: var(--tag-ia); color: var(--tag-ia-text); border: none; }
+    .card--auto .tag { background: var(--tag-auto); color: var(--tag-auto-text); border: none; }
+    .card--web .tag { background: var(--tag-web); color: var(--tag-web-text); border: none; }
+    .card--mkt .tag { background: var(--tag-mkt); color: var(--tag-mkt-text); border: none; }
+
+    @media (min-width: 768px) {
+      .bento-grid {
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-flow: dense;
+      }
+      /* Broken, human layout */
+      .glass-card:nth-child(1) { grid-column: span 7; } /* Data */
+      .glass-card:nth-child(2) { grid-column: span 5; } /* Backend */
+      .glass-card:nth-child(3) { grid-column: span 5; } /* IA */
+      .glass-card:nth-child(4) { grid-column: span 7; } /* Auto */
+      .glass-card:nth-child(5) { grid-column: span 6; } /* Web */
+      .glass-card:nth-child(6) { grid-column: span 6; } /* Mkt */
+    }
+
+    /* ==========================================================
+       6. SOBRE MIM (OVERLAPPING COMPOSITION)
+    ========================================================== */
+    .about-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      position: relative;
+    }
+
+    .about-visual {
+      position: relative;
+      width: 240px;
+      align-self: center;
+    }
+    
+    .about-img-wrapper {
+      position: relative;
+      z-index: 2;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: var(--glass-shadow);
+      transform: rotate(2deg); /* Human touch */
+    }
+    .about-img-wrapper img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.1) saturate(0.9);
+    }
+    
+    /* Decorative glass element behind image */
+    .about-visual::after {
+      content: '';
+      position: absolute;
+      top: 10%; left: -15%;
+      width: 100%; height: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      z-index: 1;
+      transform: rotate(-4deg);
+    }
+
+    .about-content {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      box-shadow: var(--glass-shadow);
+    }
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+    }
+    .about-content strong {
+      color: var(--color-text-main);
+      font-weight: 500;
+    }
+
+    .about-meta {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-meta li {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      display: flex;
+      flex-direction: column;
+    }
+    .about-meta li span {
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      margin-top: 0.2rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-layout {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+      }
+      .about-visual {
+        flex: 0 0 350px;
+        align-self: flex-start;
+        z-index: 5;
+        margin-right: -4rem; /* Intentional overlap */
+        margin-top: 2rem;
+      }
+      .about-img-wrapper img { height: 380px; }
+      .about-content {
+        flex: 1;
+        padding-left: 6rem; /* Make room for overlap */
+      }
+      .about-meta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+    }
+
+    /* ==========================================================
+       7. EXPERIÊNCIA (STAGGERED TIMELINE)
+    ========================================================== */
+    .timeline {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
-    .sobre__photo img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-      box-shadow: var(--shadow-card);
-    }
-    .sobre__text p { color: var(--color-ink-muted); margin-bottom: 1rem; }
-    .sobre__meta {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      color: var(--color-ink-muted);
-      border-top: 1px dashed var(--color-border);
-      padding-top: 1rem;
-      margin-top: 1rem;
-    }
-    .sobre__meta li span { color: var(--color-ink); }
 
-    @media (min-width: 768px) {
-      .sobre__content { flex-direction: row; align-items: flex-start; gap: 3rem; }
-      .sobre__photo img { width: 220px; height: 220px; }
-      .sobre__text { flex: 1; }
+    /* Subtle connecting line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 1rem;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0.65rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border: 2px solid var(--color-text-light);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .timeline-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease;
+    }
+    .timeline-card:hover { transform: translateX(5px); }
+
+    .time-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent-1);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .timeline-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .timeline-card h4 { font-family: var(--font-body); font-weight: 400; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+    .timeline-card p { font-size: 0.9rem; color: var(--color-text-muted); }
+
+    @media (min-width: 800px) {
+      .timeline::before { left: 50%; }
+      .timeline-item { width: 50%; padding: 0; margin-bottom: -2rem; }
+      .timeline-item:nth-child(odd) { padding-right: 3rem; text-align: right; }
+      .timeline-item:nth-child(even) { align-self: flex-end; padding-left: 3rem; }
+      
+      .timeline-item:nth-child(odd) .timeline-dot { left: auto; right: -6px; }
+      .timeline-item:nth-child(even) .timeline-dot { left: -6px; }
     }
 
     /* ==========================================================
-       7. EXPERIÊNCIA (TIMELINE)
+       8. PROJETOS (MASONRY/STAGGERED)
     ========================================================== */
-    .timeline {
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--glass-shadow);
+      transition: all 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      background: var(--glass-bg-hover);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .project-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+    }
+
+    /* Badge specific mapped colors */
+    .badge--ia { color: var(--tag-ia-text); }
+    .badge--ocr { color: var(--tag-auto-text); }
+    .badge--crm { color: var(--tag-mkt-text); }
+    .badge--bpm { color: var(--tag-back-text); }
+    .badge--ipynb { color: var(--tag-data-text); }
+    .badge--java { color: var(--tag-auto-text); }
+    .badge--c { color: var(--color-text-muted); }
+    .badge--alg { color: var(--color-accent-1); }
+
+    .project-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .project-card p { color: var(--color-text-muted); font-size: 0.9rem; flex-grow: 1; margin-bottom: 2rem; }
+
+    @media (min-width: 700px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      /* Human touch: stagger even items */
+      .project-card:nth-child(even) { transform: translateY(3rem); }
+      .project-card:nth-child(even):hover { transform: translateY(calc(3rem - 8px)) scale(1.01); }
+      .projetos { padding-bottom: calc(var(--spacing-section) + 3rem); }
+    }
+
+    /* ==========================================================
+       9. CONTATO (GLASS JSON DATA-CARD)
+    ========================================================== */
+    .contact-layout {
+      display: flex;
+      justify-content: center;
+    }
+
+    .glass-json-card {
+      background: var(--syntax-bg);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      box-shadow: var(--glass-shadow);
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+    }
+
+    /* Small decorative element */
+    .glass-json-card::before {
+      content: '';
+      position: absolute;
+      top: -15px; right: -15px;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .json-code {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--color-text-main);
+      white-space: pre-wrap;
+    }
+    
+    .json-code a {
+      color: var(--syntax-string);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: text-decoration-color 0.3s;
+    }
+    .json-code a:hover { text-decoration-color: var(--syntax-string); }
+
+    /* ==========================================================
+       10. FOOTER (FROSTED STATUS BAR)
+    ========================================================== */
+    .footer {
+      margin-top: 4rem;
+      padding: 1.5rem;
+    }
+
+    .status-glass {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
-    .timeline-item {
-      position: relative;
-      padding-left: 2rem;
-      border-left: 2px solid var(--color-border);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -6px;
-      top: 0;
-      width: 10px;
-      height: 10px;
-      background: var(--color-primary);
-      border-radius: 50%;
-    }
-    .timeline-item__date {
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--color-primary);
-      margin-bottom: 0.2rem;
-      display: block;
-    }
-    .timeline-item__title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-ink);
-    }
-    .timeline-item__company {
-      font-size: 0.85rem;
-      color: var(--color-ink-muted);
-      margin-bottom: 0.5rem;
-    }
-    .timeline-item__desc {
-      font-size: 0.9rem;
-      color: var(--color-ink-muted);
+      color: var(--color-text-muted);
     }
 
-    /* ==========================================================
-       8. PROJETOS
-    ========================================================== */
-    .project-card {
-      background: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
-    }
-    .project-card:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
-
-    .project-card__header {
+    .status-pulse {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-    .project-card__badge {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    
-    /* Cores das Badges Customizadas para Projetos */
-    .project-card__badge--ia { color: var(--color-ia); border-color: var(--color-ia); }
-    .project-card__badge--ocr { color: var(--color-automacao); border-color: var(--color-automacao); }
-    .project-card__badge--crm { color: var(--color-marketing); border-color: var(--color-marketing); }
-    .project-card__badge--bpm { color: var(--color-backend); border-color: var(--color-backend); }
-    .project-card__badge--ipynb { color: var(--color-data); border-color: var(--color-data); }
-    .project-card__badge--java { color: var(--color-automacao); border-color: var(--color-automacao); }
-    .project-card__badge--c { color: var(--color-ink-muted); border-color: var(--color-ink-muted); }
-    .project-card__badge--alg { color: var(--color-primary); border-color: var(--color-primary); }
-
-    .project-card__title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-    .project-card__desc { color: var(--color-ink-muted); font-size: 0.92rem; }
-    .project-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: auto;
-      padding-top: 0.5rem;
-    }
-    .project-card__tags li {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--color-ink-muted);
-      background: var(--color-bg);
-      border-radius: 4px;
-      padding: 0.2rem 0.5rem;
-    }
-
-    /* ==========================================================
-       9. CONTATO (JSON STYLE)
-    ========================================================== */
-    .contact-terminal {
-      background: var(--color-bg-darker);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border-dark);
-      padding: 1.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      color: var(--color-ink-on-dark);
-      overflow-x: auto;
-      max-width: 600px;
-    }
-    .contact-terminal a {
-      color: var(--color-string, #C3E88D);
-      text-decoration: underline;
-      text-decoration-color: transparent;
-      transition: text-decoration-color 0.2s;
-    }
-    .contact-terminal a:hover {
-      text-decoration-color: var(--color-string, #C3E88D);
-    }
-    .json-key { color: var(--color-keyword, #C792EA); }
-    .json-bracket { color: #8B93A3; }
-
-    /* ==========================================================
-       10. RODAPÉ ("STATUS BAR")
-    ========================================================== */
-    .status-bar {
-      background: var(--color-bg-dark);
-      color: var(--color-ink-on-dark-muted);
-      padding: 1rem 1.25rem;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-    }
-    .status-bar__inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
       gap: 0.75rem;
     }
-    .status-bar__row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-    .status-bar__left { display: flex; align-items: center; gap: 0.5rem; }
-    .status-bar__dot {
-      width: 8px;
-      height: 8px;
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background: var(--color-accent-3);
       border-radius: 50%;
-      background: var(--color-success);
-      box-shadow: 0 0 0 0 rgba(43, 174, 102, 0.6);
-      animation: pulse 2.2s infinite;
+      box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
+      animation: pulseAnim 2s infinite;
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(43, 174, 102, 0.5); }
-      70% { box-shadow: 0 0 0 6px rgba(43, 174, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(43, 174, 102, 0); }
+    @keyframes pulseAnim {
+      0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(5, 150, 105, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
     }
-    .status-bar__socials { display: flex; gap: 0.9rem; }
-    .status-bar__socials a { color: var(--color-ink-on-dark-muted); }
-    .status-bar__socials a:hover { color: var(--color-ink-on-dark); }
-    .status-bar__socials svg { width: 16px; height: 16px; }
-    .status-bar__copy {
-      color: #4D5667;
-      border-top: 1px solid var(--color-border-dark);
-      padding-top: 0.75rem;
+
+    .status-right { display: flex; align-items: center; gap: 2rem; }
+    
+    .social-links { display: flex; gap: 1rem; }
+    .social-links a { color: var(--color-text-muted); transition: color 0.2s; }
+    .social-links a:hover { color: var(--color-text-main); }
+    .social-links svg { width: 18px; height: 18px; }
+
+    .copyright {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 1rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--color-text-light);
     }
   </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO + NAVEGAÇÃO -->
-  <header class="header">
-    <div class="header__inner">
-      <a href="#" class="logo">&gt;<span>_</span>Marcelo_Lucas.dev</a>
+  <!-- Abstract Background Elements -->
+  <div class="bg-mesh"></div>
+  <div class="noise"></div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navTabs">
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
-        <span class="menu-toggle__bar"></span>
+  <!-- NAVIGATION -->
+  <div class="nav-wrapper">
+    <nav class="nav-glass">
+      <a href="#" class="nav-logo">&gt;<span>_</span>Marcelo_Lucas.dev</a>
+      
+      <div class="nav-links">
+        <a href="#inicio" class="nav-link is-active" data-nav>inicio.js</a>
+        <a href="#atuacao" class="nav-link" data-nav>atuacao.py</a>
+        <a href="#sobre" class="nav-link" data-nav>sobre.md</a>
+        <a href="#experiencia" class="nav-link" data-nav>experiencia.yml</a>
+        <a href="#projetos" class="nav-link" data-nav>projetos.json</a>
+        <a href="#contato" class="nav-link" data-nav>contato.json</a>
+      </div>
+
+      <button class="menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span><span></span>
       </button>
 
-      <nav>
-        <ul class="nav-tabs" id="navTabs">
-          <li><a href="#inicio" class="nav-tab is-active" data-tab><span class="nav-tab__dot"></span>inicio.js</a></li>
-          <li><a href="#atuacao" class="nav-tab" data-tab><span class="nav-tab__dot"></span>atuacao.py</a></li>
-          <li><a href="#sobre" class="nav-tab" data-tab><span class="nav-tab__dot"></span>sobre.md</a></li>
-          <li><a href="#experiencia" class="nav-tab" data-tab><span class="nav-tab__dot"></span>experiencia.yml</a></li>
-          <li><a href="#projetos" class="nav-tab" data-tab><span class="nav-tab__dot"></span>projetos.json</a></li>
-          <li><a href="#contato" class="nav-tab" data-tab><span class="nav-tab__dot"></span>contato.json</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#inicio" class="nav-link is-active" data-nav>inicio.js</a>
+        <a href="#atuacao" class="nav-link" data-nav>atuacao.py</a>
+        <a href="#sobre" class="nav-link" data-nav>sobre.md</a>
+        <a href="#experiencia" class="nav-link" data-nav>experiencia.yml</a>
+        <a href="#projetos" class="nav-link" data-nav>projetos.json</a>
+        <a href="#contato" class="nav-link" data-nav>contato.json</a>
+      </div>
+    </nav>
+  </div>
 
   <main>
-
-    <!-- SEÇÃO 1: HERO -->
-    <section id="inicio" class="hero">
-      <div class="container">
-        <div class="code-window">
-          <div class="code-window__bar">
-            <span class="code-window__dot code-window__dot--red"></span>
-            <span class="code-window__dot code-window__dot--yellow"></span>
-            <span class="code-window__dot code-window__dot--green"></span>
-            <span class="code-window__filename">perfil.js</span>
-          </div>
-          <pre class="code-block"><span class="code-comment">// unindo bases de dados robustas, automação e geração de valor comercial</span>
-<span class="code-keyword">const</span> <span class="code-var">perfil</span> = {
-  nome: <span class="code-string">"Marcelo Lucas"</span>,
-  cargo: <span class="code-string">"<span id="typingRole"></span><span class="cursor">|</span>"</span>,
-  stack_core: [<span class="code-string">"Python"</span>, <span class="code-string">"Java"</span>, <span class="code-string">"C"</span>, <span class="code-string">"JavaScript"</span>],
-  foco_principal: <span class="code-ia">"Engenharia de Dados, Backend, Automação & CRM"</span>,
-};</pre>
-        </div>
-
-        <div class="hero__actions">
-          <a href="#projetos" class="btn btn--primary">Ver arquiteturas de projeto</a>
-          <a href="#contato" class="btn btn--ghost">Acessar contatos</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO 2: ÁREAS DE ATUAÇÃO -->
-    <section id="atuacao" class="section atuacao">
-      <div class="container">
-        <p class="section__eyebrow">// areas-de-atuacao/</p>
-        <h2 class="section__title">Fundamentos Técnicos & Soluções</h2>
-
-        <div class="cards-grid">
+    <!-- HERO -->
+    <section id="inicio" class="hero container reveal">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Marcelo Lucas <span>Engenharia de Dados, IA & Automação</span></h1>
           
-          <article class="specialty-card specialty-card--data">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">modelos.ipynb</span>
-            </div>
-            <h3 class="specialty-card__title">Engenharia de Dados & ML</h3>
-            <p class="specialty-card__desc">Construção de pipelines de extração, tratamento de datasets estruturados e modelagem de algoritmos preditivos para classificação e análise comportamental.</p>
-            <ul class="specialty-card__tags"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>NumPy</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--backend">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">core_sistemas.java</span>
-            </div>
-            <h3 class="specialty-card__title">Backend & Estruturas</h3>
-            <p class="specialty-card__desc">Desenvolvimento modular de alta performance. Implementação de algoritmos complexos, gerenciamento de memória, autômatos e lógicas de busca (Hash, AVL Trees).</p>
-            <ul class="specialty-card__tags"><li>Java</li><li>C</li><li>Prolog</li><li>Arquitetura</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--ia">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">llms.py</span>
-            </div>
-            <h3 class="specialty-card__title">Inteligência Artificial</h3>
-            <p class="specialty-card__desc">Integração de modelos cognitivos (Gemini), desenvolvimento de chatbots recomendadores via Typebot e aplicação de tecnologias de OCR para leitura de documentos.</p>
-            <ul class="specialty-card__tags"><li>LLMs</li><li>NLP</li><li>OCR</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--automacao">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">pipelines.yml</span>
-            </div>
-            <h3 class="specialty-card__title">Automação de Processos</h3>
-            <p class="specialty-card__desc">Arquitetura de fluxos end-to-end. Transformo tarefas manuais e dados não estruturados em regras de negócio otimizadas utilizando orquestradores lógicos.</p>
-            <ul class="specialty-card__tags"><li>Power Platform</li><li>n8n</li><li>Ansible</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--web">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">sistemas.js</span>
-            </div>
-            <h3 class="specialty-card__title">Desenvolvimento Web</h3>
-            <p class="specialty-card__desc">Criação de landing pages estruturadas, orquestração de APIs e provisionamento de infraestrutura escalável em servidores Linux e containers Docker.</p>
-            <ul class="specialty-card__tags"><li>JavaScript</li><li>PHP</li><li>SQL</li><li>Docker</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--marketing">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">crm.php</span>
-            </div>
-            <h3 class="specialty-card__title">Marketing & CRM</h3>
-            <p class="specialty-card__desc">Configuração e administração de CRMs, criação de automações conversacionais multicanal para geração de leads e esteiras de qualificação de base de clientes.</p>
-            <ul class="specialty-card__tags"><li>HubSpot</li><li>ManyChat</li><li>Integrações</li></ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO 3: SOBRE MIM -->
-    <section id="sobre" class="section sobre">
-      <div class="container">
-        <p class="section__eyebrow">// sobre-mim.md</p>
-        <h2 class="section__title">Sobre mim</h2>
-
-        <div class="sobre__content">
-          <div class="sobre__photo">
-            <img src="imagens/MarceloLucas.jpeg" alt="Marcelo Lucas" width="220" height="220" onerror="this.src='https://via.placeholder.com/220x220/14181F/FFFFFF?text=Marcelo'">
+          <div class="hero-actions">
+            <a href="https://linkedin.com/in/marcelo-lucas" target="_blank" rel="noopener" class="btn btn-primary">Acessar LinkedIn</a>
+            <a href="#projetos" class="btn btn-ghost">Ver arquiteturas</a>
           </div>
+        </div>
 
-          <div class="sobre__text">
-            <p>Acredito que interfaces bonitas e automações ágeis são vitais, mas a verdadeira inteligência de um sistema reside nos <strong>algoritmos</strong> e nos <strong>dados</strong> estruturados por trás dele. Comecei garantindo a estabilidade de infraestruturas críticas (ServiceNow, Zabbix, Linux) e evoluí para a construção de soluções ativas e modelagem preditiva.</p>
-            <p>Hoje atuo como um desenvolvedor focado em resultados ("Full-Cycle"): do desenvolvimento de algoritmos complexos em Backend (Java, C) e Machine Learning (Python), até a captação e conversão de leads usando integrações nativas de CRM e Web. Meu objetivo não é apenas escrever código, mas criar esteiras eficientes que conectem tecnologia, dados e receita.</p>
-
-            <ul class="sobre__meta">
-              <li>formação_academica: <span>Ciência da Computação — Universidade Presbiteriana Mackenzie</span></li>
-              <li>idiomas: <span>Inglês (Avançado), Espanhol (Básico)</span></li>
-              <li>foco_de_carreira: <span>Engenharia de Dados, Backend, Machine Learning & CRM</span></li>
-            </ul>
+        <div class="glass-editor-wrapper">
+          <div class="glass-code-editor">
+            <div class="editor-header">
+              <div class="editor-dots">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+              <span class="editor-filename">perfil.js</span>
+            </div>
+            <div class="editor-body">
+<span class="hl-comment">// unindo bases de dados robustas, automação e geração de valor comercial</span>
+<span class="hl-keyword">const</span> <span class="hl-var">perfil</span> = {
+  nome: <span class="hl-string">"Marcelo Lucas"</span>,
+  cargo: <span class="hl-string">"<span id="typewriter"></span><span class="cursor"></span>"</span>,
+  stack_core: [<span class="hl-string">"Python"</span>, <span class="hl-string">"Java"</span>, <span class="hl-string">"C"</span>, <span class="hl-string">"JavaScript"</span>],
+  foco_principal: <span class="hl-ia">"Engenharia de Dados, Backend, Automação & CRM"</span>,
+};
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO 4: EXPERIÊNCIA (TIMELINE) -->
-    <section id="experiencia" class="section">
-      <div class="container">
-        <p class="section__eyebrow">// hist_profissional.yml</p>
-        <h2 class="section__title">Experiência Profissional</h2>
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section id="atuacao" class="section container">
+      <span class="section-eyebrow reveal">// areas-de-atuacao/</span>
+      <h2 class="section-title reveal">Fundamentos Técnicos & Soluções</h2>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-item__date">Jan/2026 — Atual</span>
-            <h3 class="timeline-item__title">Commercial Automation Developer</h3>
-            <p class="timeline-item__company">Consultoria de Tecnologia e Inovação</p>
-            <p class="timeline-item__desc">Implementação de melhorias contínuas via automações e estruturação de dados. Criação de scripts Python utilizando OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-item__date">Mai/2025 — Dez/2025</span>
-            <h3 class="timeline-item__title">Sustentação ITSM e Service Management</h3>
-            <p class="timeline-item__company">Consultoria de Tecnologia e Inovação</p>
-            <p class="timeline-item__desc">Sustentação de plataforma de gestão operacional. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-item__date">Jan/2025 — Mai/2025</span>
-            <h3 class="timeline-item__title">Infraestrutura OCS (Windows Server)</h3>
-            <p class="timeline-item__company">Multinacional de Tecnologia da Informação</p>
-            <p class="timeline-item__desc">Provisionamento e dimensionamento de servidores. Automação via Ansible para VMs e patches, monitoramento com Zabbix e administração de Active Directory/GPOs.</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-item__date">2023 — Jan/2025</span>
-            <h3 class="timeline-item__title">Backoffice OCS</h3>
-            <p class="timeline-item__company">Multinacional de Tecnologia da Informação</p>
-            <p class="timeline-item__desc">Monitoramento e controle de tickets no ServiceNow. Defesa diária de processos em reuniões de CAB, garantindo o ciclo de vida e a governança ITSM de mudanças de infraestrutura.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO 5: PROJETOS -->
-    <section id="projetos" class="section projetos">
-      <div class="container">
-        <p class="section__eyebrow">// poc_and_systems/</p>
-        <h2 class="section__title">Soluções implementadas</h2>
-
-        <div class="cards-grid">
-
-          <!-- PROJETOS DO MERCADO / IMAGEM ENVIADA -->
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--ia">.AI</span>
-            </div>
-            <h3 class="project-card__title">Provador Virtual Inteligente</h3>
-            <p class="project-card__desc">Sistema interativo com IA (Gemini) focado na recomendação e prova de produtos. Orquestração via n8n e Typebot, com deploy em infraestrutura própria via Docker/Ubuntu, integrado a plataformas de e-commerce.</p>
-            <ul class="project-card__tags"><li>Gemini</li><li>n8n</li><li>Typebot</li><li>Docker</li><li>NuvemShop</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--ocr">.PY / .OCR</span>
-            </div>
-            <h3 class="project-card__title">Soluções em Automação e Tratamento de Dados</h3>
-            <p class="project-card__desc">Desenvolvimento de soluções para otimização de rotinas em duas frentes: extração de dados de documentos não estruturados (PDFs) utilizando Python e OCR, e modelagem independente de regras de negócio e aplicativos utilizando o ecossistema Power Platform.</p>
-            <ul class="project-card__tags"><li>Python</li><li>OCR</li><li>Power Automate</li><li>Power Apps</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--crm">.CRM</span>
-            </div>
-            <h3 class="project-card__title">Automação de Marketing & Leads</h3>
-            <p class="project-card__desc">Ecossistema end-to-end de atração e gestão comercial. Configuração de fluxos no ManyChat para conversão inicial, criação de Landing Pages otimizadas e pipeline de qualificação sincronizado nativamente no HubSpot.</p>
-            <ul class="project-card__tags"><li>HubSpot</li><li>ManyChat</li><li>JavaScript</li><li>PHP</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--bpm">.BPM</span>
-            </div>
-            <h3 class="project-card__title">Automação de Service Management</h3>
-            <p class="project-card__desc">Redução do overhead operacional do departamento de HaaS. Mapeamento de BPM convertido em chatbots internos, rotinas de banco de dados (Macros SQL) e fluxos validados em testes sistêmicos.</p>
-            <ul class="project-card__tags"><li>Cervello</li><li>SQL</li><li>Chatbots</li><li>BPM</li></ul>
-          </article>
-
-          <!-- PROJETOS ACADÊMICOS / DADOS E BACKEND -->
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--ipynb">.IPYNB</span>
-            </div>
-            <h3 class="project-card__title">Modelo Preditivo Bancário</h3>
-            <p class="project-card__desc">Desenvolvimento de algoritmo de classificação binária focado em prever a adesão a produtos financeiros. Projeto com engenharia de atributos, validação cruzada, tuning e explicabilidade em ciclos rápidos de experimentação.</p>
-            <ul class="project-card__tags"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>Machine Learning</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--java">.JAVA</span>
-            </div>
-            <h3 class="project-card__title">Motor de Similaridade Textual</h3>
-            <p class="project-card__desc">Sistema robusto focado na comparação de documentos textuais. Escrito em Java, integra Tabelas Hash para representação eficiente de textos e Árvores AVL para manutenção ordenada e recuperação de resultados de similaridade.</p>
-            <ul class="project-card__tags"><li>Java</li><li>Tabelas Hash</li><li>Árvores AVL</li><li>Algoritmos</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--c">.C</span>
-            </div>
-            <h3 class="project-card__title">Validador de Máquinas de Estado</h3>
-            <p class="project-card__desc">Reconhecedor de cadeias simulando os movimentos do cavalo no Xadrez. Solução desenvolvida via CLI que valida matrizes de transição, mapeando processamento de estados até retornar ACEITA (com caminho) ou REJEITADA.</p>
-            <ul class="project-card__tags"><li>C</li><li>Máquinas de Estado</li><li>Matrizes</li><li>CLI</li></ul>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <span class="project-card__badge project-card__badge--alg">.ALG</span>
-            </div>
-            <h3 class="project-card__title">Compressor Estocástico (Huffman)</h3>
-            <p class="project-card__desc">Implementação core do algoritmo de codificação de Huffman visando compressão de dados. O projeto focou em manipulação binária e foi implementado em múltiplos paradigmas (Lógico e POO) para testes de performance.</p>
-            <ul class="project-card__tags"><li>Prolog</li><li>Java</li><li>Lisp</li><li>Estrutura de Dados</li></ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÃO 6: CONTATO (Terminal JSON Form) -->
-    <section id="contato" class="section contato">
-      <div class="container">
-        <p class="section__eyebrow">// conexao.bash</p>
-        <h2 class="section__title">Iniciar Conexão</h2>
+      <div class="bento-grid">
         
-        <div class="contact-terminal">
-<span class="json-bracket">{</span>
-  <span class="json-key">"nome"</span>: <span class="code-string">"Marcelo Lucas"</span>,
-  <span class="json-key">"email"</span>: <a href="mailto:marceloluis.simonelucas@gmail.com">"marceloluis.simonelucas@gmail.com"</a>,
-  <span class="json-key">"redes_sociais"</span>: <span class="json-bracket">{</span>
-    <span class="json-key">"linkedin"</span>: <a href="https://linkedin.com/in/marcelo-lucas" target="_blank">"linkedin.com/in/marcelo-lucas"</a>
-  <span class="json-bracket">}</span>
-<span class="json-bracket">}</span></code></pre>
+        <article class="glass-card card--data reveal">
+          <span class="card-file">modelos.ipynb</span>
+          <h3>Engenharia de Dados & ML</h3>
+          <p>Construção de pipelines de extração, tratamento de datasets estruturados e modelagem de algoritmos preditivos para classificação e análise comportamental.</p>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+        </article>
+
+        <article class="glass-card card--back reveal">
+          <span class="card-file">core_sistemas.java</span>
+          <h3>Backend & Estruturas</h3>
+          <p>Desenvolvimento modular de alta performance. Implementação de algoritmos complexos, gerenciamento de memória, autômatos e lógicas de busca (Hash, AVL Trees).</p>
+          <div class="card-tags"><span class="tag">Java</span><span class="tag">C</span><span class="tag">Prolog</span><span class="tag">Arquitetura</span></div>
+        </article>
+
+        <article class="glass-card card--ia reveal">
+          <span class="card-file">llms.py</span>
+          <h3>Inteligência Artificial</h3>
+          <p>Integração de modelos cognitivos (Gemini), desenvolvimento de chatbots recomendadores via Typebot e aplicação de tecnologias de OCR para leitura de documentos.</p>
+          <div class="card-tags"><span class="tag">LLMs</span><span class="tag">NLP</span><span class="tag">OCR</span></div>
+        </article>
+
+        <article class="glass-card card--auto reveal">
+          <span class="card-file">pipelines.yml</span>
+          <h3>Automação de Processos</h3>
+          <p>Arquitetura de fluxos end-to-end. Transformo tarefas manuais e dados não estruturados em regras de negócio otimizadas utilizando orquestradores lógicos.</p>
+          <div class="card-tags"><span class="tag">Power Platform</span><span class="tag">n8n</span><span class="tag">Ansible</span></div>
+        </article>
+
+        <article class="glass-card card--web reveal">
+          <span class="card-file">sistemas.js</span>
+          <h3>Desenvolvimento Web</h3>
+          <p>Criação de landing pages estruturadas, orquestração de APIs e provisionamento de infraestrutura escalável em servidores Linux e containers Docker.</p>
+          <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Docker</span></div>
+        </article>
+
+        <article class="glass-card card--mkt reveal">
+          <span class="card-file">crm.php</span>
+          <h3>Marketing & CRM</h3>
+          <p>Configuração e administração de CRMs, criação de automações conversacionais multicanal para geração de leads e esteiras de qualificação de base de clientes.</p>
+          <div class="card-tags"><span class="tag">HubSpot</span><span class="tag">ManyChat</span><span class="tag">Integrações</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="section container">
+      <span class="section-eyebrow reveal">// sobre-mim.md</span>
+      <h2 class="section-title reveal">Sobre mim</h2>
+
+      <div class="about-layout reveal">
+        <div class="about-visual">
+          <div class="about-img-wrapper">
+            <img src="imagens/MarceloLucas.jpeg" alt="Marcelo Lucas" onerror="this.src='https://via.placeholder.com/400x500/EBF4F6/0F172A?text=Marcelo+Lucas'">
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p>Acredito que interfaces bonitas e automações ágeis são vitais, mas a verdadeira inteligência de um sistema reside nos <strong>algoritmos</strong> e nos <strong>dados</strong> estruturados por trás dele. Comecei garantindo a estabilidade de infraestruturas críticas (ServiceNow, Zabbix, Linux) e evoluí para a construção de soluções ativas e modelagem preditiva.</p>
+          <p>Hoje atuo como um desenvolvedor focado em resultados ("Full-Cycle"): do desenvolvimento de algoritmos complexos em Backend (Java, C) e Machine Learning (Python), até a captação e conversão de leads usando integrações nativas de CRM e Web. Meu objetivo não é apenas escrever código, mas criar esteiras eficientes que conectem tecnologia, dados e receita.</p>
+          
+          <ul class="about-meta">
+            <li>formação_academica: <span>Ciência da Computação — Universidade Presbiteriana Mackenzie</span></li>
+            <li>idiomas: <span>Inglês (Avançado), Espanhol (Básico)</span></li>
+            <li>foco_de_carreira: <span>Engenharia de Dados, Backend, Machine Learning & CRM</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="section container">
+      <span class="section-eyebrow reveal">// hist_profissional.yml</span>
+      <h2 class="section-title reveal">Experiência Profissional</h2>
+
+      <div class="timeline">
+        
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="time-date">Jan/2026 — Atual</span>
+            <h3>Commercial Automation Developer</h3>
+            <h4>Consultoria de Tecnologia e Inovação</h4>
+            <p>Implementação de melhorias contínuas via automações e estruturação de dados. Criação de scripts Python utilizando OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="time-date">Mai/2025 — Dez/2025</span>
+            <h3>Sustentação ITSM e Service Management</h3>
+            <h4>Consultoria de Tecnologia e Inovação</h4>
+            <p>Sustentação de plataforma de gestão operacional. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="time-date">Jan/2025 — Mai/2025</span>
+            <h3>Infraestrutura OCS (Windows Server)</h3>
+            <h4>Multinacional de Tecnologia da Informação</h4>
+            <p>Provisionamento e dimensionamento de servidores. Automação via Ansible para VMs e patches, monitoramento com Zabbix e administração de Active Directory/GPOs.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="time-date">2023 — Jan/2025</span>
+            <h3>Backoffice OCS</h3>
+            <h4>Multinacional de Tecnologia da Informação</h4>
+            <p>Monitoramento e controle de tickets no ServiceNow. Defesa diária de processos em reuniões de CAB, garantindo o ciclo de vida e a governança ITSM de mudanças de infraestrutura.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section container projetos">
+      <span class="section-eyebrow reveal">// poc_and_systems/</span>
+      <h2 class="section-title reveal">Soluções implementadas</h2>
+
+      <div class="projects-grid">
+        
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--ia">.AI</span>
+          </div>
+          <h3>Provador Virtual Inteligente</h3>
+          <p>Sistema interativo com IA (Gemini) focado na recomendação e prova de produtos. Orquestração via n8n e Typebot, com deploy em infraestrutura própria via Docker/Ubuntu, integrado a plataformas de e-commerce.</p>
+          <div class="card-tags"><span class="tag">Gemini</span><span class="tag">n8n</span><span class="tag">Typebot</span><span class="tag">Docker</span><span class="tag">NuvemShop</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--ocr">.PY / .OCR</span>
+          </div>
+          <h3>Soluções em Automação e Tratamento de Dados</h3>
+          <p>Desenvolvimento de soluções para otimização de rotinas em duas frentes: extração de dados de documentos não estruturados (PDFs) utilizando Python e OCR, e modelagem independente de regras de negócio e aplicativos utilizando o ecossistema Power Platform.</p>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">Power Automate</span><span class="tag">Power Apps</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--crm">.CRM</span>
+          </div>
+          <h3>Automação de Marketing & Leads</h3>
+          <p>Ecossistema end-to-end de atração e gestão comercial. Configuração de fluxos no ManyChat para conversão inicial, criação de Landing Pages otimizadas e pipeline de qualificação sincronizado nativamente no HubSpot.</p>
+          <div class="card-tags"><span class="tag">HubSpot</span><span class="tag">ManyChat</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--bpm">.BPM</span>
+          </div>
+          <h3>Automação de Service Management</h3>
+          <p>Redução do overhead operacional do departamento de HaaS. Mapeamento de BPM convertido em chatbots internos, rotinas de banco de dados (Macros SQL) e fluxos validados em testes sistêmicos.</p>
+          <div class="card-tags"><span class="tag">Cervello</span><span class="tag">SQL</span><span class="tag">Chatbots</span><span class="tag">BPM</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--ipynb">.IPYNB</span>
+          </div>
+          <h3>Modelo Preditivo Bancário</h3>
+          <p>Desenvolvimento de algoritmo de classificação binária focado em prever a adesão a produtos financeiros. Projeto com engenharia de atributos, validação cruzada, tuning e explicabilidade em ciclos rápidos de experimentação.</p>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">Machine Learning</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--java">.JAVA</span>
+          </div>
+          <h3>Motor de Similaridade Textual</h3>
+          <p>Sistema robusto focado na comparação de documentos textuais. Escrito em Java, integra Tabelas Hash para representação eficiente de textos e Árvores AVL para manutenção ordenada e recuperação de resultados de similaridade.</p>
+          <div class="card-tags"><span class="tag">Java</span><span class="tag">Tabelas Hash</span><span class="tag">Árvores AVL</span><span class="tag">Algoritmos</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--c">.C</span>
+          </div>
+          <h3>Validador de Máquinas de Estado</h3>
+          <p>Reconhecedor de cadeias simulando os movimentos do cavalo no Xadrez. Solução desenvolvida via CLI que valida matrizes de transição, mapeando processamento de estados até retornar ACEITA (com caminho) ou REJEITADA.</p>
+          <div class="card-tags"><span class="tag">C</span><span class="tag">Máquinas de Estado</span><span class="tag">Matrizes</span><span class="tag">CLI</span></div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-header">
+            <span class="project-badge badge--alg">.ALG</span>
+          </div>
+          <h3>Compressor Estocástico (Huffman)</h3>
+          <p>Implementação core do algoritmo de codificação de Huffman visando compressão de dados. O projeto focou em manipulação binária e foi implementado em múltiplos paradigmas (Lógico e POO) para testes de performance.</p>
+          <div class="card-tags"><span class="tag">Prolog</span><span class="tag">Java</span><span class="tag">Lisp</span><span class="tag">Estrutura de Dados</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTATO (JSON DATA CARD) -->
+    <section id="contato" class="section container">
+      <span class="section-eyebrow reveal">// conexao.bash</span>
+      <h2 class="section-title reveal" style="text-align: center;">Iniciar Conexão</h2>
+      
+      <div class="contact-layout reveal">
+        <div class="glass-json-card">
+          <div class="json-code">
+<span class="hl-bracket">{</span>
+  <span class="hl-keyword">"nome"</span>: <span class="hl-string">"Marcelo Lucas"</span>,
+  <span class="hl-keyword">"email"</span>: <a href="mailto:marceloluis.simonelucas@gmail.com">"marceloluis.simonelucas@gmail.com"</a>,
+  <span class="hl-keyword">"redes_sociais"</span>: <span class="hl-bracket">{</span>
+    <span class="hl-keyword">"linkedin"</span>: <a href="https://linkedin.com/in/marcelo-lucas" target="_blank" rel="noopener">"linkedin.com/in/marcelo-lucas"</a>
+  <span class="hl-bracket">}</span>
+<span class="hl-bracket">}</span></div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- RODAPÉ ("STATUS BAR") -->
-  <footer class="status-bar">
-    <div class="status-bar__inner">
-      <div class="status-bar__row">
-        <div class="status-bar__left">
-          <span class="status-bar__dot" aria-hidden="true"></span>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="status-glass">
+      <div class="status-row">
+        <div class="status-pulse">
+          <span class="pulse-dot"></span>
           <span>Deploy concluído. Sistemas operacionais.</span>
         </div>
 
-        <div class="status-bar__row" style="gap: 1.25rem;">
-          <span id="localTime"></span>
-
-          <div class="status-bar__socials">
+        <div class="status-right">
+          <span id="localClock"></span>
+          
+          <div class="social-links">
             <a href="https://linkedin.com/in/marcelo-lucas" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
             </a>
@@ -890,106 +1202,114 @@
           </div>
         </div>
       </div>
-
-      <p class="status-bar__copy">© <span id="currentYear"></span> Marcelo Lucas. Todos os direitos reservados.</p>
+      <div class="copyright">
+        © <span id="year"></span> Marcelo Lucas. Todos os direitos reservados.
+      </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-
-      // 1. Menu Mobile
-      const menuToggle = document.getElementById('menuToggle');
-      const navTabs = document.getElementById('navTabs');
-
-      menuToggle.addEventListener('click', () => {
-        const isOpen = navTabs.classList.toggle('is-open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-      });
-
-      const navTabLinks = document.querySelectorAll('[data-tab]');
-      navTabLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          navTabs.classList.remove('is-open');
-          menuToggle.setAttribute('aria-expanded', 'false');
+      
+      // 1. Reveal Animations (Intersection Observer)
+      const reveals = document.querySelectorAll('.reveal');
+      const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+      
+      const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         });
+      }, revealOptions);
+      
+      reveals.forEach(reveal => revealOnScroll.observe(reveal));
+
+      // 2. Mobile Menu Toggle
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const navLinks = document.querySelectorAll('[data-nav]');
+
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('is-open');
+        mobileMenu.classList.toggle('is-open');
       });
 
-      // 2. Aba Ativa via Scroll
+      // 3. Navigation Active State on Scroll
       const sections = document.querySelectorAll('main section[id]');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navTabLinks.forEach((link) => {
-              link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+      
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.remove('is-active');
+              if(link.getAttribute('href') === `#${entry.target.id}`) {
+                link.classList.add('is-active');
+              }
             });
           }
         });
-      }, { rootMargin: '-45% 0px -45% 0px' });
+      }, { rootMargin: '-40% 0px -60% 0px' });
 
-      sections.forEach((section) => observer.observe(section));
+      sections.forEach(sec => navObserver.observe(sec));
 
-      // 3. Efeito de Digitação (Hero)
-      const typingEl = document.getElementById('typingRole');
-      const cargos = [
-        'Engenheiro de Dados',
-        'Backend Developer',
-        'Full-Cycle Engineer',
-        'Especialista em Automação'
-      ];
+      // Close mobile menu on click
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuBtn.classList.remove('is-open');
+          mobileMenu.classList.remove('is-open');
+        });
+      });
 
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (typingEl && !prefersReducedMotion) {
-        let cargoIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function digitar() {
-          const textoAtual = cargos[cargoIndex];
-
-          if (!isDeleting) {
-            charIndex++;
-            typingEl.textContent = textoAtual.slice(0, charIndex);
-            if (charIndex === textoAtual.length) {
-              isDeleting = true;
-              setTimeout(digitar, 1800); 
-              return;
-            }
+      // 4. Typewriter Effect
+      const typeEl = document.getElementById('typewriter');
+      const roles = ['Engenheiro de Dados', 'Backend Developer', 'Full-Cycle Engineer', 'Especialista em Automação'];
+      
+      if (typeEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let i = 0, j = 0, isDeleting = false;
+        
+        function type() {
+          const currentRole = roles[i];
+          if(isDeleting) {
+            typeEl.textContent = currentRole.substring(0, j - 1);
+            j--;
           } else {
-            charIndex--;
-            typingEl.textContent = textoAtual.slice(0, charIndex);
-            if (charIndex === 0) {
-              isDeleting = false;
-              cargoIndex = (cargoIndex + 1) % cargos.length;
-            }
+            typeEl.textContent = currentRole.substring(0, j + 1);
+            j++;
           }
-          setTimeout(digitar, isDeleting ? 40 : 80);
+
+          let speed = isDeleting ? 30 : 70;
+
+          if(!isDeleting && j === currentRole.length) {
+            speed = 2000; // Pause at end
+            isDeleting = true;
+          } else if(isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % roles.length;
+            speed = 500; // Pause before next
+          }
+
+          setTimeout(type, speed);
         }
-        digitar();
-      } else if (typingEl) {
-        typingEl.textContent = cargos[0];
+        setTimeout(type, 1000);
+      } else if (typeEl) {
+        typeEl.textContent = roles[0];
       }
 
-      // 4. Relógio Local e Ano
-      const localTimeEl = document.getElementById('localTime');
-      const currentYearEl = document.getElementById('currentYear');
-
-      function atualizarRelogio() {
-        const agora = new Date();
-        const horas = String(agora.getHours()).padStart(2, '0');
-        const minutos = String(agora.getMinutes()).padStart(2, '0');
-        localTimeEl.textContent = `${horas}:${minutos} local`;
+      // 5. Clock & Year
+      const clockEl = document.getElementById('localClock');
+      const yearEl = document.getElementById('year');
+      
+      function updateTime() {
+        const now = new Date();
+        clockEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} local`;
       }
-
-      atualizarRelogio();
-      setInterval(atualizarRelogio, 1000 * 30);
-      currentYearEl.textContent = new Date().getFullYear();
+      
+      updateTime();
+      setInterval(updateTime, 30000);
+      if(yearEl) yearEl.textContent = new Date().getFullYear();
 
     });
   </script>
-
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Marcelo Lucas | Engenheiro de IA & Automação</title>
-  <meta name="description" content="Portfólio de Marcelo Lucas: Desenvolvedor com foco em Inteligência Artificial, Automação de Processos, Dados, Desenvolvimento Web e Marketing." />
+  <title>Marcelo Lucas | Engenharia de Dados, IA & Automação</title>
+  <meta name="description" content="Portfólio de Marcelo Lucas: Desenvolvedor Full-Cycle com foco em Dados, Backend, Inteligência Artificial, Automação de Processos e Marketing." />
 
   <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,11 +34,13 @@
       --color-accent: #FF6B4A;
       --color-success: #2BAE66;
 
-      /* Cores por Área de Atuação (Os 4 Pilares) */
+      /* Cores por Área de Atuação e Badges */
       --color-ia: #8B5CF6;        /* IA - Violeta */
-      --color-automacao: #D9A62E; /* Automação - Âmbar */
-      --color-backend: #3454D1;   /* Desenvolvimento - Índigo */
-      --color-marketing: #10B981; /* Marketing & CRM - Esmeralda */
+      --color-automacao: #D9A62E; /* Automação/Java - Âmbar */
+      --color-backend: #3454D1;   /* Backend/C/BPM - Índigo */
+      --color-marketing: #10B981; /* Marketing/CRM - Esmeralda */
+      --color-data: #E83E8C;      /* Dados/Jupyter - Rosa */
+      --color-web: #0ea5e9;       /* Web - Azul Claro */
 
       /* Bordas e Sombras */
       --color-border: #E2E5EA;
@@ -319,9 +321,11 @@
       flex-direction: column;
       gap: 0.6rem;
     }
+    .specialty-card--data { border-left-color: var(--color-data); }
+    .specialty-card--backend { border-left-color: var(--color-backend); }
     .specialty-card--ia { border-left-color: var(--color-ia); }
     .specialty-card--automacao { border-left-color: var(--color-automacao); }
-    .specialty-card--backend { border-left-color: var(--color-backend); }
+    .specialty-card--web { border-left-color: var(--color-web); }
     .specialty-card--marketing { border-left-color: var(--color-marketing); }
 
     .specialty-card__top {
@@ -465,11 +469,18 @@
       border: 1px solid var(--color-border);
       padding: 0.15rem 0.5rem;
       border-radius: 4px;
+      font-weight: 600;
     }
+    
+    /* Cores das Badges Customizadas para Projetos */
     .project-card__badge--ia { color: var(--color-ia); border-color: var(--color-ia); }
     .project-card__badge--ocr { color: var(--color-automacao); border-color: var(--color-automacao); }
     .project-card__badge--crm { color: var(--color-marketing); border-color: var(--color-marketing); }
     .project-card__badge--bpm { color: var(--color-backend); border-color: var(--color-backend); }
+    .project-card__badge--ipynb { color: var(--color-data); border-color: var(--color-data); }
+    .project-card__badge--java { color: var(--color-automacao); border-color: var(--color-automacao); }
+    .project-card__badge--c { color: var(--color-ink-muted); border-color: var(--color-ink-muted); }
+    .project-card__badge--alg { color: var(--color-primary); border-color: var(--color-primary); }
 
     .project-card__title {
       font-family: var(--font-display);
@@ -606,12 +617,12 @@
             <span class="code-window__dot code-window__dot--green"></span>
             <span class="code-window__filename">perfil.js</span>
           </div>
-          <pre class="code-block"><span class="code-comment">// transformando processos manuais em sistemas inteligentes</span>
+          <pre class="code-block"><span class="code-comment">// unindo bases de dados robustas, automação e geração de valor comercial</span>
 <span class="code-keyword">const</span> <span class="code-var">perfil</span> = {
   nome: <span class="code-string">"Marcelo Lucas"</span>,
   cargo: <span class="code-string">"<span id="typingRole"></span><span class="cursor">|</span>"</span>,
-  areas: [<span class="code-string">"IA"</span>, <span class="code-string">"Automação"</span>, <span class="code-string">"Dev Full-stack"</span>, <span class="code-string">"Marketing"</span>],
-  foco_principal: <span class="code-ia">"Inteligência Artificial & Automação Comercial & Dados"</span>,
+  stack_core: [<span class="code-string">"Python"</span>, <span class="code-string">"Java"</span>, <span class="code-string">"C"</span>, <span class="code-string">"JavaScript"</span>],
+  foco_principal: <span class="code-ia">"Engenharia de Dados, Backend, Automação & CRM"</span>,
 };</pre>
         </div>
 
@@ -626,33 +637,52 @@
     <section id="atuacao" class="section atuacao">
       <div class="container">
         <p class="section__eyebrow">// areas-de-atuacao/</p>
-        <h2 class="section__title">O que eu faço</h2>
+        <h2 class="section__title">Fundamentos Técnicos & Soluções</h2>
 
         <div class="cards-grid">
-          <article class="specialty-card specialty-card--ia">
+          
+          <article class="specialty-card specialty-card--data">
             <div class="specialty-card__top">
-              <span class="specialty-card__file">modelos.py</span>
+              <span class="specialty-card__file">modelos.ipynb</span>
             </div>
-            <h3 class="specialty-card__title">Inteligência Artificial</h3>
-            <p class="specialty-card__desc">Desenvolvimento de soluções interativas com IA: integração de modelos (Gemini), chatbots recomendadores e tecnologias de OCR para extração de dados.</p>
-            <ul class="specialty-card__tags"><li>Python</li><li>LLMs</li><li>Machine Learning</li><li>OCR</li></ul>
-          </article>
-
-          <article class="specialty-card specialty-card--automacao">
-            <div class="specialty-card__top">
-              <span class="specialty-card__file">fluxos.yml</span>
-            </div>
-            <h3 class="specialty-card__title">Automação de Processos</h3>
-            <p class="specialty-card__desc">Arquitetura de pipelines end-to-end. Transformo documentos não estruturados e tarefas repetitivas em regras de negócio otimizadas.</p>
-            <ul class="specialty-card__tags"><li>Power Platform</li><li>n8n</li><li>Ansible</li><li>BPM</li></ul>
+            <h3 class="specialty-card__title">Engenharia de Dados & ML</h3>
+            <p class="specialty-card__desc">Construção de pipelines de extração, tratamento de datasets estruturados e modelagem de algoritmos preditivos para classificação e análise comportamental.</p>
+            <ul class="specialty-card__tags"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>NumPy</li></ul>
           </article>
 
           <article class="specialty-card specialty-card--backend">
             <div class="specialty-card__top">
+              <span class="specialty-card__file">core_sistemas.java</span>
+            </div>
+            <h3 class="specialty-card__title">Backend & Estruturas</h3>
+            <p class="specialty-card__desc">Desenvolvimento modular de alta performance. Implementação de algoritmos complexos, gerenciamento de memória, autômatos e lógicas de busca (Hash, AVL Trees).</p>
+            <ul class="specialty-card__tags"><li>Java</li><li>C</li><li>Prolog</li><li>Arquitetura</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--ia">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">llms.py</span>
+            </div>
+            <h3 class="specialty-card__title">Inteligência Artificial</h3>
+            <p class="specialty-card__desc">Integração de modelos cognitivos (Gemini), desenvolvimento de chatbots recomendadores via Typebot e aplicação de tecnologias de OCR para leitura de documentos.</p>
+            <ul class="specialty-card__tags"><li>LLMs</li><li>NLP</li><li>OCR</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--automacao">
+            <div class="specialty-card__top">
+              <span class="specialty-card__file">pipelines.yml</span>
+            </div>
+            <h3 class="specialty-card__title">Automação de Processos</h3>
+            <p class="specialty-card__desc">Arquitetura de fluxos end-to-end. Transformo tarefas manuais e dados não estruturados em regras de negócio otimizadas utilizando orquestradores lógicos.</p>
+            <ul class="specialty-card__tags"><li>Power Platform</li><li>n8n</li><li>Ansible</li></ul>
+          </article>
+
+          <article class="specialty-card specialty-card--web">
+            <div class="specialty-card__top">
               <span class="specialty-card__file">sistemas.js</span>
             </div>
             <h3 class="specialty-card__title">Desenvolvimento Web</h3>
-            <p class="specialty-card__desc">Criação de landing pages, orquestração de APIs e provisionamento de infraestrutura em servidores Linux e Docker.</p>
+            <p class="specialty-card__desc">Criação de landing pages estruturadas, orquestração de APIs e provisionamento de infraestrutura escalável em servidores Linux e containers Docker.</p>
             <ul class="specialty-card__tags"><li>JavaScript</li><li>PHP</li><li>SQL</li><li>Docker</li></ul>
           </article>
 
@@ -661,9 +691,10 @@
               <span class="specialty-card__file">crm.php</span>
             </div>
             <h3 class="specialty-card__title">Marketing & CRM</h3>
-            <p class="specialty-card__desc">Configuração e administração de CRMs, criação de automações conversacionais para geração de leads e qualificação de base de clientes.</p>
+            <p class="specialty-card__desc">Configuração e administração de CRMs, criação de automações conversacionais multicanal para geração de leads e esteiras de qualificação de base de clientes.</p>
             <ul class="specialty-card__tags"><li>HubSpot</li><li>ManyChat</li><li>Integrações</li></ul>
           </article>
+
         </div>
       </div>
     </section>
@@ -676,19 +707,17 @@
 
         <div class="sobre__content">
           <div class="sobre__photo">
-            <!-- Coloque sua foto real neste caminho -->
             <img src="imagens/MarceloLucas.jpeg" alt="Marcelo Lucas" width="220" height="220" onerror="this.src='https://via.placeholder.com/220x220/14181F/FFFFFF?text=Marcelo'">
           </div>
 
           <div class="sobre__text">
-            <p>Desenvolvedor focado na resolução de problemas operacionais e de negócios. Minha jornada profissional é construída sobre uma fundação sólida: comecei garantindo o funcionamento de processos críticos de TI e infraestrutura (ServiceNow, Zabbix, Ansible) e evoluí para a construção de soluções ativas e inteligentes.</p>
-            <p>Hoje, atuo no desenvolvimento de soluções que unem <strong>Inteligência Artificial</strong>, <strong>Desenvolvimento Web</strong> e ecossistemas de <strong>Automação Comercial</strong>. Seja provisionando um servidor Docker ou criando scripts de OCR para eliminar tarefas manuais, meu objetivo final é sempre o mesmo: converter gargalos operacionais em eficiência e tempo salvo.</p>
-
+            <p>Acredito que interfaces bonitas e automações ágeis são vitais, mas a verdadeira inteligência de um sistema reside nos <strong>algoritmos</strong> e nos <strong>dados</strong> estruturados por trás dele. Comecei garantindo a estabilidade de infraestruturas críticas (ServiceNow, Zabbix, Linux) e evoluí para a construção de soluções ativas e modelagem preditiva.</p>
+            <p>Hoje atuo como um desenvolvedor focado em resultados ("Full-Cycle"): do desenvolvimento de algoritmos complexos em Backend (Java, C) e Machine Learning (Python), até a captação e conversão de leads usando integrações nativas de CRM e Web. Meu objetivo não é apenas escrever código, mas criar esteiras eficientes que conectem tecnologia, dados e receita.</p>
 
             <ul class="sobre__meta">
               <li>formação_academica: <span>Ciência da Computação — Universidade Presbiteriana Mackenzie</span></li>
               <li>idiomas: <span>Inglês (Avançado), Espanhol (Básico)</span></li>
-              <li>foco_de_carreira: <span>Dados, Inovação, Inteligência Artificial e Automação</span></li>
+              <li>foco_de_carreira: <span>Engenharia de Dados, Backend, Machine Learning & CRM</span></li>
             </ul>
           </div>
         </div>
@@ -705,24 +734,28 @@
           <div class="timeline-item">
             <span class="timeline-item__date">Jan/2026 — Atual</span>
             <h3 class="timeline-item__title">Commercial Automation Developer</h3>
-            <p class="timeline-item__desc">Implementação de melhorias contínuas via automações e estruturação de dados. Criação de scripts python utilizando OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP/CSS) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
+            <p class="timeline-item__company">Consultoria de Tecnologia e Inovação</p>
+            <p class="timeline-item__desc">Implementação de melhorias contínuas via automações e estruturação de dados. Criação de scripts Python utilizando OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
           </div>
 
           <div class="timeline-item">
             <span class="timeline-item__date">Mai/2025 — Dez/2025</span>
-            <h3 class="timeline-item__title">HaaS (Hardware as a Service) - Sustentação</h3>
-            <p class="timeline-item__desc">Sustentação do Cervello Service Management. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
+            <h3 class="timeline-item__title">Sustentação ITSM e Service Management</h3>
+            <p class="timeline-item__company">Consultoria de Tecnologia e Inovação</p>
+            <p class="timeline-item__desc">Sustentação de plataforma de gestão operacional. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
           </div>
 
           <div class="timeline-item">
             <span class="timeline-item__date">Jan/2025 — Mai/2025</span>
             <h3 class="timeline-item__title">Infraestrutura OCS (Windows Server)</h3>
+            <p class="timeline-item__company">Multinacional de Tecnologia da Informação</p>
             <p class="timeline-item__desc">Provisionamento e dimensionamento de servidores. Automação via Ansible para VMs e patches, monitoramento com Zabbix e administração de Active Directory/GPOs.</p>
           </div>
 
           <div class="timeline-item">
             <span class="timeline-item__date">2023 — Jan/2025</span>
             <h3 class="timeline-item__title">Backoffice OCS</h3>
+            <p class="timeline-item__company">Multinacional de Tecnologia da Informação</p>
             <p class="timeline-item__desc">Monitoramento e controle de tickets no ServiceNow. Defesa diária de processos em reuniões de CAB, garantindo o ciclo de vida e a governança ITSM de mudanças de infraestrutura.</p>
           </div>
         </div>
@@ -732,11 +765,12 @@
     <!-- SEÇÃO 5: PROJETOS -->
     <section id="projetos" class="section projetos">
       <div class="container">
-        <p class="section__eyebrow">// meus-projetos/</p>
+        <p class="section__eyebrow">// poc_and_systems/</p>
         <h2 class="section__title">Soluções implementadas</h2>
 
         <div class="cards-grid">
 
+          <!-- PROJETOS DO MERCADO / IMAGEM ENVIADA -->
           <article class="project-card">
             <div class="project-card__header">
               <span class="project-card__badge project-card__badge--ia">.AI</span>
@@ -750,9 +784,9 @@
             <div class="project-card__header">
               <span class="project-card__badge project-card__badge--ocr">.PY / .OCR</span>
             </div>
-              <h3 class="project-card__title">Soluções em Automação e Tratamento de Dados</h3>
-              <p class="project-card__desc">Desenvolvimento de soluções para otimização de rotinas em duas frentes: extração de dados de documentos não estruturados (PDFs) utilizando Python e OCR, e modelagem independente de regras de negócio e aplicativos utilizando o ecossistema Power Platform.</p>
-              <ul class="project-card__tags"><li>Python</li><li>OCR</li><li>Power Automate</li><li>Power Apps</li></ul>
+            <h3 class="project-card__title">Soluções em Automação e Tratamento de Dados</h3>
+            <p class="project-card__desc">Desenvolvimento de soluções para otimização de rotinas em duas frentes: extração de dados de documentos não estruturados (PDFs) utilizando Python e OCR, e modelagem independente de regras de negócio e aplicativos utilizando o ecossistema Power Platform.</p>
+            <ul class="project-card__tags"><li>Python</li><li>OCR</li><li>Power Automate</li><li>Power Apps</li></ul>
           </article>
 
           <article class="project-card">
@@ -773,6 +807,43 @@
             <ul class="project-card__tags"><li>Cervello</li><li>SQL</li><li>Chatbots</li><li>BPM</li></ul>
           </article>
 
+          <!-- PROJETOS ACADÊMICOS / DADOS E BACKEND -->
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--ipynb">.IPYNB</span>
+            </div>
+            <h3 class="project-card__title">Modelo Preditivo Bancário</h3>
+            <p class="project-card__desc">Desenvolvimento de algoritmo de classificação binária focado em prever a adesão a produtos financeiros. Projeto com engenharia de atributos, validação cruzada, tuning e explicabilidade em ciclos rápidos de experimentação.</p>
+            <ul class="project-card__tags"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>Machine Learning</li></ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--java">.JAVA</span>
+            </div>
+            <h3 class="project-card__title">Motor de Similaridade Textual</h3>
+            <p class="project-card__desc">Sistema robusto focado na comparação de documentos textuais. Escrito em Java, integra Tabelas Hash para representação eficiente de textos e Árvores AVL para manutenção ordenada e recuperação de resultados de similaridade.</p>
+            <ul class="project-card__tags"><li>Java</li><li>Tabelas Hash</li><li>Árvores AVL</li><li>Algoritmos</li></ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--c">.C</span>
+            </div>
+            <h3 class="project-card__title">Validador de Máquinas de Estado</h3>
+            <p class="project-card__desc">Reconhecedor de cadeias simulando os movimentos do cavalo no Xadrez. Solução desenvolvida via CLI que valida matrizes de transição, mapeando processamento de estados até retornar ACEITA (com caminho) ou REJEITADA.</p>
+            <ul class="project-card__tags"><li>C</li><li>Máquinas de Estado</li><li>Matrizes</li><li>CLI</li></ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <span class="project-card__badge project-card__badge--alg">.ALG</span>
+            </div>
+            <h3 class="project-card__title">Compressor Estocástico (Huffman)</h3>
+            <p class="project-card__desc">Implementação core do algoritmo de codificação de Huffman visando compressão de dados. O projeto focou em manipulação binária e foi implementado em múltiplos paradigmas (Lógico e POO) para testes de performance.</p>
+            <ul class="project-card__tags"><li>Prolog</li><li>Java</li><li>Lisp</li><li>Estrutura de Dados</li></ul>
+          </article>
+
         </div>
       </div>
     </section>
@@ -784,12 +855,13 @@
         <h2 class="section__title">Iniciar Conexão</h2>
         
         <div class="contact-terminal">
-<pre><code><span class="code-comment">// Execute um ping para batermos um papo sobre tecnologia, IA ou automação.</span>
+<pre><code><span class="code-comment">// Execute um ping para debatermos sobre código, estruturas de dados ou oportunidades.</span>
 <span class="json-bracket">{</span>
   <span class="json-key">"nome"</span>: <span class="code-string">"Marcelo Lucas"</span>,
+  <span class="json-key">"email"</span>: <a href="mailto:marceloluis.simonelucas@gmail.com">"marceloluis.simonelucas@gmail.com"</a>,
   <span class="json-key">"redes_sociais"</span>: <span class="json-bracket">{</span>
     <span class="json-key">"linkedin"</span>: <a href="https://linkedin.com/in/marcelo-lucas" target="_blank">"linkedin.com/in/marcelo-lucas"</a>
-  <span class="json-bracket">}</span>,
+  <span class="json-bracket">}</span>
 <span class="json-bracket">}</span></code></pre>
         </div>
       </div>
@@ -863,10 +935,10 @@
       // 3. Efeito de Digitação (Hero)
       const typingEl = document.getElementById('typingRole');
       const cargos = [
-        'Engenheiro de IA',
-        'Especialista em Automação',
-        'Arquiteto de Soluções',
-        'Desenvolvedor Full-stack'
+        'Engenheiro de Dados',
+        'Backend Developer',
+        'Full-Cycle Engineer',
+        'Especialista em Automação'
       ];
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

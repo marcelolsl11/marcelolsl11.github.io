@@ -273,10 +273,16 @@
     }
 
     @media (min-width: 860px) {
-      .menu-btn { display: none; }
-      .nav-links { display: flex; }
-      .mobile-menu-backdrop { display: none !important; }
-    }
+          .menu-btn { display: none; }
+          .nav-links { display: flex; }
+          .mobile-menu-backdrop { display: none !important; }
+          
+          /* Esta nova regra faz a cápsula abraçar todo o texto sem cortar */
+          .nav-wrapper {
+            width: max-content;
+            max-width: 95vw;
+          }
+        }
 
     /* ==========================================================
        4. HERO & GLASS CODE EDITOR

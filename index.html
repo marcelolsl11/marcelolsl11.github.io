@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marcelo Lucas | Engenharia de Dados, IA & Automação</title>
-  <meta name="description" content="Portfólio de Marcelo Lucas: Desenvolvedor Full-Cycle com foco em Dados, Backend, Inteligência Artificial, Automação de Processos e Marketing." />
+  <title>Marcelo Lucas | Automation & Software Engineering</title>
+  <meta name="description" content="Marcelo Lucas Portfolio: Automation Developer focused on building applications, API orchestration, software architecture, and end-to-end solutions with artificial intelligence." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,27 +70,26 @@
     body {
       font-family: var(--font-body);
       color: var(--color-text-main);
-      background-color: #FAFAFB; /* Fundo limpo e suave */
+      background-color: #FAFAFB;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* NOVO BACKGROUND: Efeito Aurora Elegante */
+    /* BACKGROUND: Elegant Aurora Mesh */
     .bg-mesh {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
       z-index: -3;
       background-color: #FAFAFB;
-      /* Gradientes suaves espalhados pelas bordas */
       background-image: 
         radial-gradient(circle at 0% 0%, rgba(224, 242, 254, 0.7) 0%, transparent 40%),
         radial-gradient(circle at 100% 0%, rgba(243, 232, 255, 0.7) 0%, transparent 40%),
         radial-gradient(circle at 100% 100%, rgba(209, 250, 229, 0.5) 0%, transparent 40%),
         radial-gradient(circle at 0% 100%, rgba(224, 231, 255, 0.6) 0%, transparent 40%);
-      filter: blur(60px); /* Desfoque intenso para misturar as cores */
-      transform: translateZ(0); /* Aceleração de hardware */
+      filter: blur(60px);
+      transform: translateZ(0);
       pointer-events: none;
     }
 
@@ -131,7 +130,7 @@
     }
 
     /* ==========================================================
-       3. NAVIGATION & NOVO MENU MOBILE
+       3. NAVIGATION & MOBILE MENU
     ========================================================== */
     .nav-wrapper {
       position: fixed;
@@ -191,7 +190,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    /* Menu mobile button */
     .menu-btn {
       display: block;
       background: none;
@@ -215,11 +213,10 @@
     .menu-btn.is-open span:nth-child(1) { top: 15px; transform: rotate(45deg); }
     .menu-btn.is-open span:nth-child(2) { top: 15px; transform: rotate(-45deg); }
 
-    /* Overlay que escurece o site ao abrir o menu */
     .mobile-menu-backdrop {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(15, 23, 42, 0.15); /* Fundo escuro leve */
+      background: rgba(15, 23, 42, 0.15);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       z-index: 99;
@@ -234,18 +231,17 @@
       pointer-events: auto;
     }
 
-    /* O dropdown do Mobile agora é sólido e claro para não se misturar */
     .mobile-menu {
       position: absolute;
       top: calc(100% + 1rem);
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95); /* Quase totalmente branco */
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid #fff;
       border-radius: var(--radius-md);
-      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12); /* Sombra mais forte */
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -264,26 +260,25 @@
     }
     .mobile-menu .nav-link {
       display: block;
-      font-size: 0.9rem; /* Maior para leitura no celular */
+      font-size: 0.9rem;
       padding: 1rem;
       border-radius: var(--radius-sm);
-      border-bottom: 1px solid rgba(0,0,0,0.03); /* Linha divisória suave */
+      border-bottom: 1px solid rgba(0,0,0,0.03);
     }
     .mobile-menu .nav-link:last-child {
       border-bottom: none;
     }
 
     @media (min-width: 860px) {
-          .menu-btn { display: none; }
-          .nav-links { display: flex; }
-          .mobile-menu-backdrop { display: none !important; }
-          
-          /* Esta nova regra faz a cápsula abraçar todo o texto sem cortar */
-          .nav-wrapper {
-            width: max-content;
-            max-width: 95vw;
-          }
-        }
+      .menu-btn { display: none; }
+      .nav-links { display: flex; }
+      .mobile-menu-backdrop { display: none !important; }
+      
+      .nav-wrapper {
+        width: max-content;
+        max-width: 95vw;
+      }
+    }
 
     /* ==========================================================
        4. HERO & GLASS CODE EDITOR
@@ -452,7 +447,7 @@
     }
 
     /* ==========================================================
-       5. ÁREAS DE ATUAÇÃO (BROKEN GRID)
+       5. EXPERTISE (BROKEN GRID)
     ========================================================== */
     .section { padding: var(--spacing-section) 0; }
     @media (min-width: 768px) {
@@ -549,7 +544,7 @@
     }
 
     /* ==========================================================
-       6. SOBRE MIM (OVERLAPPING COMPOSITION)
+       6. ABOUT ME (OVERLAPPING COMPOSITION)
     ========================================================== */
     .about-layout {
       display: flex;
@@ -650,7 +645,7 @@
     }
 
     /* ==========================================================
-       7. EXPERIÊNCIA (STAGGERED TIMELINE)
+       7. EXPERIENCE (STAGGERED TIMELINE)
     ========================================================== */
     .timeline {
       position: relative;
@@ -720,7 +715,7 @@
     }
 
     /* ==========================================================
-       8. PROJETOS (MASONRY/STAGGERED)
+       8. PROJECTS (MASONRY/STAGGERED & VIDEO SUPPORT)
     ========================================================== */
     .projects-grid {
       display: grid;
@@ -772,6 +767,29 @@
     .badge--c { color: var(--color-text-muted); }
     .badge--alg { color: var(--color-accent-1); }
 
+    /* Video Wrapper Styles for Project Cards */
+    .project-video-wrapper {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      background-color: #0F172A;
+    }
+    
+    .project-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-video-wrapper video {
+      transform: scale(1.03);
+    }
+
     .project-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
     .project-card p { color: var(--color-text-muted); font-size: 0.9rem; flex-grow: 1; margin-bottom: 2rem; }
 
@@ -779,11 +797,11 @@
       .projects-grid { grid-template-columns: repeat(2, 1fr); }
       .project-card:nth-child(even) { transform: translateY(3rem); }
       .project-card:nth-child(even):hover { transform: translateY(calc(3rem - 8px)) scale(1.01); }
-      .projetos { padding-bottom: calc(var(--spacing-section) + 3rem); }
+      .projects { padding-bottom: calc(var(--spacing-section) + 3rem); }
     }
 
     /* ==========================================================
-       9. CONTATO (GLASS JSON DATA-CARD)
+       9. CONTACT (GLASS JSON DATA-CARD)
     ========================================================== */
     .contact-layout {
       display: flex;
@@ -916,7 +934,7 @@
   <!-- Abstract Background Aurora Mesh -->
   <div class="bg-mesh"></div>
   
-  <!-- Overlay para o menu mobile (Escurece o fundo) -->
+  <!-- Mobile Menu Backdrop Overlay -->
   <div class="mobile-menu-backdrop" id="menuBackdrop"></div>
 
   <!-- NAVIGATION -->
@@ -925,13 +943,13 @@
       <a href="#" class="nav-logo">&gt;Marcelo<span>_</span>Lucas.dev</a>
       
       <div class="nav-links">
-        <a href="#inicio" class="nav-link is-active" data-nav>inicio.js</a>
-        <a href="#atuacao" class="nav-link" data-nav>atuacao.py</a>
-        <a href="#sobre" class="nav-link" data-nav>sobre.md</a>
-        <a href="#experiencia" class="nav-link" data-nav>experiencia.yml</a>
-        <a href="#projetos" class="nav-link" data-nav>projetos.json</a>
-        <a href="#outros-projetos" class="nav-link" data-nav>outros.json</a>
-        <a href="#contato" class="nav-link" data-nav>contato.json</a>
+        <a href="#home" class="nav-link is-active" data-nav>home.js</a>
+        <a href="#expertise" class="nav-link" data-nav>expertise.ts</a>
+        <a href="#about" class="nav-link" data-nav>about.md</a>
+        <a href="#experience" class="nav-link" data-nav>experience.yml</a>
+        <a href="#projects" class="nav-link" data-nav>projects.json</a>
+        <a href="#others" class="nav-link" data-nav>others.json</a>
+        <a href="#contact" class="nav-link" data-nav>contact.json</a>
       </div>
 
       <button class="menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -939,27 +957,27 @@
       </button>
 
       <div class="mobile-menu" id="mobileMenu">
-        <a href="#inicio" class="nav-link is-active" data-nav>inicio.js</a>
-        <a href="#atuacao" class="nav-link" data-nav>atuacao.py</a>
-        <a href="#sobre" class="nav-link" data-nav>sobre.md</a>
-        <a href="#experiencia" class="nav-link" data-nav>experiencia.yml</a>
-        <a href="#projetos" class="nav-link" data-nav>projetos.json</a>
-        <a href="#outros-projetos" class="nav-link" data-nav>outros.json</a>
-        <a href="#contato" class="nav-link" data-nav>contato.json</a>
+        <a href="#home" class="nav-link is-active" data-nav>home.js</a>
+        <a href="#expertise" class="nav-link" data-nav>expertise.ts</a>
+        <a href="#about" class="nav-link" data-nav>about.md</a>
+        <a href="#experience" class="nav-link" data-nav>experience.yml</a>
+        <a href="#projects" class="nav-link" data-nav>projects.json</a>
+        <a href="#others" class="nav-link" data-nav>others.json</a>
+        <a href="#contact" class="nav-link" data-nav>contact.json</a>
       </div>
     </nav>
   </div>
 
   <main>
     <!-- HERO -->
-    <section id="inicio" class="hero container reveal">
+    <section id="home" class="hero container reveal">
       <div class="hero-grid">
         <div class="hero-text">
-          <h1>Marcelo Lucas <span>Engenharia de Dados, IA & Automação</span></h1>
+          <h1>Marcelo Lucas <span>Full-Stack Development & Artificial Intelligence</span></h1>
           
           <div class="hero-actions">
-            <a href="https://linkedin.com/in/marcelolucas-mlsl/" target="_blank" rel="noopener" class="btn btn-primary">Acessar LinkedIn</a>
-            <a href="#projetos" class="btn btn-ghost">Ver arquiteturas</a>
+            <a href="https://linkedin.com/in/marcelolucas-mlsl/" target="_blank" rel="noopener" class="btn btn-primary">Access LinkedIn</a>
+            <a href="#projects" class="btn btn-ghost">View Architectures</a>
           </div>
         </div>
 
@@ -969,77 +987,77 @@
               <div class="editor-dots">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
               </div>
-              <span class="editor-filename">perfil.js</span>
+              <span class="editor-filename">profile.js</span>
             </div>
             <div class="editor-body">
-<span class="hl-comment">// unindo bases de dados robustas, automação e geração de valor comercial</span>
-<span class="hl-keyword">const</span> <span class="hl-var">perfil</span> = {
-  nome: <span class="hl-string">"Marcelo Lucas"</span>,
-  cargo: <span class="hl-string">"<span id="typewriter"></span><span class="cursor"></span>"</span>,
-  stack_core: [<span class="hl-string">"Python"</span>, <span class="hl-string">"Java"</span>, <span class="hl-string">"C"</span>, <span class="hl-string">"JavaScript"</span>],
-  foco_principal: <span class="hl-ia">"Engenharia de Dados, Backend, Automação & CRM"</span>,
+<span class="hl-comment">// orchestrating business rules, interfaces, and continuous integration</span>
+<span class="hl-keyword">const</span> <span class="hl-var">profile</span> = {
+  name: <span class="hl-string">"Marcelo Lucas"</span>,
+  role: <span class="hl-string">"<span id="typewriter"></span><span class="cursor"></span>"</span>,
+  core_stack: [<span class="hl-string">"JavaScript"</span>, <span class="hl-string">"TypeScript"</span>, <span class="hl-string">"Python"</span>, <span class="hl-string">"PHP"</span>],
+  main_focus: <span class="hl-ia">"Automation, APIs & AI Developer"</span>,
 };</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ÁREAS DE ATUAÇÃO -->
-    <section id="atuacao" class="section container">
-      <span class="section-eyebrow reveal">// areas-de-atuacao/</span>
-      <h2 class="section-title reveal">Fundamentos Técnicos & Soluções</h2>
+    <!-- EXPERTISE -->
+    <section id="expertise" class="section container">
+      <span class="section-eyebrow reveal">// areas-of-expertise/</span>
+      <h2 class="section-title reveal">Technical Foundations & Solutions</h2>
 
       <div class="bento-grid">
         
         <article class="glass-card card--data reveal">
-          <span class="card-file">modelos.ipynb</span>
-          <h3>Engenharia de Dados & ML</h3>
-          <p>Construção de pipelines de extração, tratamento de datasets estruturados e modelagem de algoritmos preditivos para classificação e análise comportamental.</p>
-          <div class="card-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+          <span class="card-file">frontend.tsx</span>
+          <h3>Frontend & Interfaces</h3>
+          <p>Building dynamic and responsive applications. Focused on user experience, direct REST API consumption, and application state orchestration.</p>
+          <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
         </article>
 
         <article class="glass-card card--back reveal">
-          <span class="card-file">core_sistemas.java</span>
-          <h3>Backend & Estruturas</h3>
-          <p>Desenvolvimento modular de alta performance. Implementação de algoritmos complexos, gerenciamento de memória, autômatos e lógicas de busca (Hash, AVL Trees).</p>
-          <div class="card-tags"><span class="tag">Java</span><span class="tag">C</span><span class="tag">Prolog</span><span class="tag">Arquitetura</span></div>
+          <span class="card-file">backend.ts</span>
+          <h3>Backend & APIs</h3>
+          <p>Developing scalable services and structured programming. Implementing business logic, database management, and complex data routines.</p>
+          <div class="card-tags"><span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Architecture</span></div>
         </article>
 
         <article class="glass-card card--ia reveal">
           <span class="card-file">llms.py</span>
-          <h3>Inteligência Artificial</h3>
-          <p>Integração de modelos cognitivos (Gemini), desenvolvimento de chatbots recomendadores via Typebot e aplicação de tecnologias de OCR para leitura de documentos.</p>
-          <div class="card-tags"><span class="tag">LLMs</span><span class="tag">NLP</span><span class="tag">OCR</span></div>
+          <h3>Applied AI Integration</h3>
+          <p>Implementing generative models (Claude, Gemini) and visual APIs (Magnific) in real-world applications. Fluent in using assistants like GitHub Copilot and Amazon Kiro.</p>
+          <div class="card-tags"><span class="tag">LLMs</span><span class="tag">AWS Q Developer</span><span class="tag">APIs</span></div>
         </article>
 
         <article class="glass-card card--auto reveal">
           <span class="card-file">pipelines.yml</span>
-          <h3>Automação de Processos</h3>
-          <p>Arquitetura de fluxos end-to-end. Transformo tarefas manuais e dados não estruturados em regras de negócio otimizadas utilizando orquestradores lógicos.</p>
-          <div class="card-tags"><span class="tag">Power Platform</span><span class="tag">n8n</span><span class="tag">Ansible</span></div>
+          <h3>Infrastructure & DevOps</h3>
+          <p>Provisioning secure environments. App containerization, reverse proxies configuration, and deployment on Ubuntu servers targeting high availability.</p>
+          <div class="card-tags"><span class="tag">Docker</span><span class="tag">Ubuntu</span><span class="tag">Ansible</span></div>
         </article>
 
         <article class="glass-card card--web reveal">
-          <span class="card-file">sistemas.js</span>
-          <h3>Desenvolvimento Web</h3>
-          <p>Criação de landing pages estruturadas, orquestração de APIs e provisionamento de infraestrutura escalável em servidores Linux e containers Docker.</p>
-          <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Docker</span></div>
+          <span class="card-file">systems.js</span>
+          <h3>End-to-End Solutions</h3>
+          <p>Full-Cycle development acting from database conception to production deployment, connecting e-commerce platforms and CRMs to the ecosystem.</p>
+          <div class="card-tags"><span class="tag">Fullstack</span><span class="tag">HubSpot</span><span class="tag">WordPress</span></div>
         </article>
 
         <article class="glass-card card--mkt reveal">
-          <span class="card-file">crm.php</span>
-          <h3>Marketing & CRM</h3>
-          <p>Configuração e administração de CRMs, criação de automações conversacionais multicanal para geração de leads e esteiras de qualificação de base de clientes.</p>
-          <div class="card-tags"><span class="tag">HubSpot</span><span class="tag">ManyChat</span><span class="tag">Integrações</span></div>
+          <span class="card-file">integrations.php</span>
+          <h3>Integrations & Webhooks</h3>
+          <p>Microservices architecture and cross-system communication. Building conversational flows via webhooks and managing data routing through Low-Code tools.</p>
+          <div class="card-tags"><span class="tag">Webhooks</span><span class="tag">n8n</span><span class="tag">Typebot</span></div>
         </article>
 
       </div>
     </section>
 
-    <!-- SOBRE MIM -->
-    <section id="sobre" class="section container">
-      <span class="section-eyebrow reveal">// sobre-mim.md</span>
-      <h2 class="section-title reveal">Sobre mim</h2>
+    <!-- ABOUT ME -->
+    <section id="about" class="section container">
+      <span class="section-eyebrow reveal">// about-me.md</span>
+      <h2 class="section-title reveal">About me</h2>
 
       <div class="about-layout reveal">
         <div class="about-visual">
@@ -1048,119 +1066,122 @@
           </div>
         </div>
 
-        <div class="about-content">
-          <p>Acredito que interfaces bonitas e automações ágeis são vitais, mas a verdadeira inteligência de um sistema reside nos <strong>algoritmos</strong> e nos <strong>dados</strong> estruturados por trás dele. Comecei garantindo a estabilidade de infraestruturas críticas (ServiceNow, Zabbix, Linux) e evoluí para a construção de soluções ativas e modelagem preditiva.</p>
-          <p>Hoje atuo como um desenvolvedor focado em resultados ("Full-Cycle"): do desenvolvimento de algoritmos complexos em Backend (Java, C) e Machine Learning (Python), até a captação e conversão de leads usando integrações nativas de CRM e Web. Meu objetivo não é apenas escrever código, mas criar esteiras eficientes que conectem tecnologia, dados e receita.</p>
+       <div class="about-content">
+          <p>System efficiency demands a true end-to-end perspective. My background in infrastructure support built the analytical foundation I use today to design complex integrations. </p>
+          
+          <p>Currently, as an <strong>Automation Developer</strong>, I translate business rules into scalable architectures through API orchestration and Generative AI. I leverage AI assistants to accelerate coding. However, I rely on my core engineering background to guarantee structural validation, security, and architectural soundness.</p>
           
           <ul class="about-meta">
-            <li>formação_academica: <span>Ciência da Computação — Universidade Presbiteriana Mackenzie</span></li>
-            <li>idiomas: <span>Inglês (Avançado), Espanhol (Básico)</span></li>
-            <li>foco_de_carreira: <span>Engenharia de Dados, Backend, Machine Learning & CRM</span></li>
+            <li>academic_background: <span>Computer Science (Universidade Presbiteriana Mackenzie)</span></li>
+            <li>languages: <span>Portuguese (Native), English (Advanced), Spanish (Intermediate)</span></li>
+            <li>career_focus: <span>Data Science, Development, and AI Integrations</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
-    <section id="experiencia" class="section container">
-      <span class="section-eyebrow reveal">// hist_profissional.yml</span>
-      <h2 class="section-title reveal">Experiência Profissional</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section container">
+      <span class="section-eyebrow reveal">// professional_hist.yml</span>
+      <h2 class="section-title reveal">Professional Experience</h2>
 
       <div class="timeline">
         
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <span class="time-date">2023 — Jan/2025</span>
+            <span class="time-date">2023 to Jan 2025</span>
             <h3>Backoffice OCS</h3>
-            <h4>Multinacional de Tecnologia da Informação</h4>
-            <p>Monitoramento e controle de tickets no ServiceNow. Defesa diária de processos em reuniões de CAB, garantindo o ciclo de vida e a governança ITSM de mudanças de infraestrutura.</p>
+            <p>Controlled the lifecycle of system changes by monitoring tickets in ServiceNow. Daily defense of technical processes in CAB (Change Advisory Board) meetings to ensure ITSM infrastructure governance.</p>
           </div>
         </div>
 
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <span class="time-date">Jan/2025 — Mai/2025</span>
-            <h3>Infraestrutura OCS (Windows Server)</h3>
-            <h4>Multinacional de Tecnologia da Informação</h4>
-            <p>Provisionamento e dimensionamento de servidores. Automação via Ansible para VMs e patches, monitoramento com Zabbix e administração de Active Directory/GPOs.</p>
+            <span class="time-date">Jan 2025 to May 2025</span>
+            <h3>Infrastructure OCS (Windows Server)</h3>
+            <p>Windows Server management and sizing. Automated server provisioning routines using Ansible and managed access policies via Active Directory.</p>
           </div>
         </div>
 
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <span class="time-date">Mai/2025 — Dez/2025</span>
-            <h3>Sustentação ITSM e Service Management</h3>
-            <h4>Consultoria de Tecnologia e Inovação</h4>
-            <p>Sustentação de plataforma de gestão operacional. Otimização de processos via chatbots, fluxos automatizados e Macros SQL. Tradução de regras de negócio com modelagem BPM e condução de testes funcionais.</p>
+            <span class="time-date">May 2025 to Jul 2026</span>
+            <h3>IT Intern (Sales & Marketing)</h3>
+            <p>Developed workflows in the ESM Cervello platform and programmed data routines using SQL. Built landing pages (JavaScript, PHP, HTML, and CSS) and automated contract analysis consuming Python OCR libraries.</p>
           </div>
         </div>
 
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <span class="time-date">Jan/2026 — Atual</span>
-            <h3>Commercial Automation Developer</h3>
-            <h4>Consultoria de Tecnologia e Inovação</h4>
-            <p>Implementação de melhorias contínuas via automações e estruturação de dados. Criação de scripts Python utilizando OCR para extração de PDFs, modelagem de processos no Power Platform, desenvolvimento de Landing Pages (JS/PHP) e administração de ecossistemas de Marketing (HubSpot/ManyChat).</p>
+            <span class="time-date">Jul 2026 to Present</span>
+            <h3>Marketing Automation Developer</h3>
+            <p>Developed web applications focused on commercial teams integrating the Power Platform ecosystem. Created automation systems using n8n, Lovable, and AI APIs (Claude and Magnific) for data insight processing and task centralization.</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- PROJETOS -->
-    <section id="projetos" class="section container projetos">
+    <!-- PROJECTS -->
+    <section id="projects" class="section container projects">
       <span class="section-eyebrow reveal">// poc_and_systems/</span>
-      <h2 class="section-title reveal">Soluções implementadas</h2>
+      <h2 class="section-title reveal">Implemented Solutions</h2>
 
       <div class="projects-grid">
         
+        <!-- CARD COM VÍDEO (ARC SUNGLASSES) -->
         <article class="project-card reveal">
           <div class="project-header">
-            <span class="project-badge badge--ia">.AI</span>
+            <span class="project-badge badge--ia">.AI / WEB</span>
           </div>
-          <h3>Provador Virtual Inteligente</h3>
-          <p>Sistema interativo com IA (Gemini) focado na recomendação e prova de produtos. Orquestração via n8n e Typebot, com deploy em infraestrutura própria via Docker/Ubuntu, integrado a plataformas de e-commerce.</p>
-          <div class="card-tags"><span class="tag">Gemini</span><span class="tag">n8n</span><span class="tag">Typebot</span><span class="tag">Docker</span><span class="tag">NuvemShop</span></div>
+          
+          <div class="project-video-wrapper">
+            <video src="videos/arcsunglasses.mp4" autoplay loop muted playsinline poster="imagens/arcsunglasses-poster.jpg"></video>
+          </div>
+
+          <h3>Virtual Try-On (Arc Sunglasses)</h3>
+          <p>Built a Generative AI virtual try-on application for e-commerce platforms. Handled full-cycle development, including n8n webhook orchestration and Docker infrastructure deployment.</p>
+          <div class="card-tags"><span class="tag">Gen AI</span><span class="tag">n8n</span><span class="tag">Typebot</span><span class="tag">Docker</span><span class="tag">Webhooks</span></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-header">
-            <span class="project-badge badge--ocr">.PY / .OCR</span>
+            <span class="project-badge badge--ocr">.WEB</span>
           </div>
-          <h3>Soluções em Automação e Tratamento de Dados</h3>
-          <p>Desenvolvimento de soluções para otimização de rotinas em duas frentes: extração de dados de documentos não estruturados (PDFs) utilizando Python e OCR, e modelagem independente de regras de negócio e aplicativos utilizando o ecossistema Power Platform.</p>
-          <div class="card-tags"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">Power Automate</span><span class="tag">Power Apps</span></div>
+          <h3>Management & Insights Platform</h3>
+          <p>Created a centralized application for the marketing and sales sector using LLMs. The system consumes external APIs for image generation, processes data for managerial insights, and organizes team operational metrics.</p>
+          <div class="card-tags"><span class="tag">Claude</span><span class="tag">APIs</span><span class="tag">JavaScript</span><span class="tag">Lovable</span></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-header">
             <span class="project-badge badge--crm">.CRM</span>
           </div>
-          <h3>Automação de Marketing & Leads</h3>
-          <p>Ecossistema end-to-end de atração e gestão comercial. Configuração de fluxos no ManyChat para conversão inicial, criação de Landing Pages otimizadas e pipeline de qualificação sincronizado nativamente no HubSpot.</p>
-          <div class="card-tags"><span class="tag">HubSpot</span><span class="tag">ManyChat</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div>
+          <h3>Acquisition & CRM Applications</h3>
+          <p>Built web interfaces natively integrated with CRM and sales systems. Programmed in JavaScript and PHP structuring captured data routing, conversational flows (ManyChat), and continuous synchronization with HubSpot.</p>
+          <div class="card-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">HubSpot</span><span class="tag">Interfaces</span></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-header">
-            <span class="project-badge badge--bpm">.BPM</span>
+            <span class="project-badge badge--bpm">.PY</span>
           </div>
-          <h3>Automação de Service Management</h3>
-          <p>Redução do overhead operacional do departamento de HaaS. Mapeamento de BPM convertido em chatbots internos, rotinas de banco de dados (Macros SQL) e fluxos validados em testes sistêmicos.</p>
-          <div class="card-tags"><span class="tag">Cervello</span><span class="tag">SQL</span><span class="tag">Chatbots</span><span class="tag">BPM</span></div>
+          <h3>Document Processing (OCR)</h3>
+          <p>Developed structured Python scripts for reading and analysis of non-standardized files. Integrated logical routines consuming OCR libraries.</p>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">OCR</span><span class="tag">SQL</span><span class="tag">Automation</span></div>
         </article>
 
       </div>
     </section>
 
-    <!-- OUTROS PROJETOS -->
-    <section id="outros-projetos" class="section container projetos">
-      <span class="section-eyebrow reveal">// algoritmos_e_academicos/</span>
-      <h2 class="section-title reveal">Outros Projetos</h2>
+    <!-- OTHER PROJECTS -->
+    <section id="others" class="section container projects">
+      <span class="section-eyebrow reveal">// algorithms_and_academic/</span>
+      <h2 class="section-title reveal">Other Projects</h2>
 
       <div class="projects-grid">
 
@@ -1168,8 +1189,8 @@
           <div class="project-header">
             <span class="project-badge badge--ipynb">.IPYNB</span>
           </div>
-          <h3>Modelo Preditivo Bancário</h3>
-          <p>Desenvolvimento de algoritmo de classificação binária focado em prever a adesão a produtos financeiros. Projeto com engenharia de atributos, validação cruzada, tuning e explicabilidade em ciclos rápidos de experimentação.</p>
+          <h3>Bank Predictive Model</h3>
+          <p>Developed a binary classification algorithm programmed to predict customer enrollment in financial products. Code covers feature engineering, cross-validation, and performance metric optimization.</p>
           <div class="card-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">Machine Learning</span></div>
         </article>
 
@@ -1177,43 +1198,43 @@
           <div class="project-header">
             <span class="project-badge badge--java">.JAVA</span>
           </div>
-          <h3>Motor de Similaridade Textual</h3>
-          <p>Sistema robusto focado na comparação de documentos textuais. Escrito em Java, integra Tabelas Hash para representação eficiente de textos e Árvores AVL para manutenção ordenada e recuperação de resultados de similaridade.</p>
-          <div class="card-tags"><span class="tag">Java</span><span class="tag">Tabelas Hash</span><span class="tag">Árvores AVL</span><span class="tag">Algoritmos</span></div>
+          <h3>Textual Similarity Engine</h3>
+          <p>Robust backend system developed for structured comparison of text documents. Written in Java, it integrates Hash Tables for memory management and AVL Trees for fast result retrieval.</p>
+          <div class="card-tags"><span class="tag">Java</span><span class="tag">Hash Tables</span><span class="tag">AVL Trees</span><span class="tag">Backend</span></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-header">
             <span class="project-badge badge--c">.C</span>
           </div>
-          <h3>Validador de Máquinas de Estado</h3>
-          <p>Reconhecedor de cadeias simulando os movimentos do cavalo no Xadrez. Solução desenvolvida via CLI que valida matrizes de transição, mapeando processamento de estados até retornar ACEITA (com caminho) ou REJEITADA.</p>
-          <div class="card-tags"><span class="tag">C</span><span class="tag">Máquinas de Estado</span><span class="tag">Matrizes</span><span class="tag">CLI</span></div>
+          <h3>State Machine Validator</h3>
+          <p>String recognizer software simulating knight moves in Chess. Natively developed via CLI in C, validating transitions in state matrices until achieving systemic acceptance.</p>
+          <div class="card-tags"><span class="tag">C</span><span class="tag">State Machines</span><span class="tag">Matrices</span><span class="tag">CLI</span></div>
         </article>
 
         <article class="project-card reveal">
           <div class="project-header">
             <span class="project-badge badge--alg">.ALG</span>
           </div>
-          <h3>Compressor Estocástico (Huffman)</h3>
-          <p>Implementação core do algoritmo de codificação de Huffman visando compressão de dados. O projeto focou em manipulação binária e foi implementado em múltiplos paradigmas (Lógico e POO) para testes de performance.</p>
-          <div class="card-tags"><span class="tag">Prolog</span><span class="tag">Java</span><span class="tag">Lisp</span><span class="tag">Estrutura de Dados</span></div>
+          <h3>Stochastic Compressor (Huffman)</h3>
+          <p>Implementation of the core Huffman coding algorithm aimed at digital data compression. Written across multiple paradigms (Logic and Object-Oriented) to validate scalability and binary manipulation.</p>
+          <div class="card-tags"><span class="tag">Prolog</span><span class="tag">Java</span><span class="tag">Lisp</span><span class="tag">Data Structures</span></div>
         </article>
 
       </div>
     </section>
 
-    <!-- CONTATO (JSON DATA CARD) -->
-    <section id="contato" class="section container">
-      <span class="section-eyebrow reveal">// conexao.bash</span>
-      <h2 class="section-title reveal" style="text-align: center;">Iniciar Conexão</h2>
+    <!-- CONTACT (JSON DATA CARD) -->
+    <section id="contact" class="section container">
+      <span class="section-eyebrow reveal">// connection.bash</span>
+      <h2 class="section-title reveal" style="text-align: center;">Initiate Connection</h2>
       
       <div class="contact-layout reveal">
         <div class="glass-json-card">
           <div class="json-code">
 <span class="hl-bracket">{</span>
-  <span class="hl-keyword">"nome"</span>: <span class="hl-string">"Marcelo Lucas"</span>,
-  <span class="hl-keyword">"redes_sociais"</span>: <span class="hl-bracket">{</span>
+  <span class="hl-keyword">"name"</span>: <span class="hl-string">"Marcelo Lucas"</span>,
+  <span class="hl-keyword">"social_networks"</span>: <span class="hl-bracket">{</span>
     <span class="hl-keyword">"linkedin"</span>: <a href="https://linkedin.com/in/marcelolucas-mlsl" target="_blank" rel="noopener">"linkedin.com/in/marcelolucas-mlsl"</a>
   <span class="hl-bracket">}</span>
 <span class="hl-bracket">}</span></div>
@@ -1228,7 +1249,7 @@
       <div class="status-row">
         <div class="status-pulse">
           <span class="pulse-dot"></span>
-          <span>Deploy concluído. Sistemas operacionais.</span>
+          <span>Deployment complete. Systems operational.</span>
         </div>
 
         <div class="status-right">
@@ -1245,7 +1266,7 @@
         </div>
       </div>
       <div class="copyright">
-        © <span id="year"></span> Marcelo Lucas. Todos os direitos reservados.
+        © <span id="year"></span> Marcelo Lucas. All rights reserved.
       </div>
     </div>
   </footer>
@@ -1313,7 +1334,7 @@
 
       // 4. Typewriter Effect
       const typeEl = document.getElementById('typewriter');
-      const roles = ['Engenheiro de Dados', 'Backend Developer', 'Full-Cycle Engineer', 'Especialista em Automação'];
+      const roles = ['Automation & AI', 'Full-Stack Developer', 'Data Science', 'infrastructure'];
       
       if (typeEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         let i = 0, j = 0, isDeleting = false;
@@ -1352,7 +1373,7 @@
       
       function updateTime() {
         const now = new Date();
-        clockEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} local`;
+        clockEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} local time`;
       }
       
       updateTime();

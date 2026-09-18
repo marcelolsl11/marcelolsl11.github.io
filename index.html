@@ -776,18 +776,32 @@
       margin-bottom: 1.5rem;
       border: 1px solid rgba(0,0,0,0.06);
       background-color: #0F172A;
+      position: relative;
     }
     
-    .project-video-wrapper video {
+    .project-video-wrapper video,
+    .project-video-wrapper iframe {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       transition: transform 0.5s ease;
+      pointer-events: none; /* Impede o clique no iframe para agir como background */
+      border: none;
+    }
+
+    /* Como object-fit: cover não afeta iframes, aplicamos um leve zoom nativo
+       para esconder eventuais bordas pretas do YouTube */
+    .project-video-wrapper iframe {
+      transform: scale(1.15); 
     }
     
     .project-card:hover .project-video-wrapper video {
       transform: scale(1.03);
+    }
+    
+    .project-card:hover .project-video-wrapper iframe {
+      transform: scale(1.2); 
     }
 
     .project-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
@@ -1027,7 +1041,7 @@
           <span class="card-file">llms.py</span>
           <h3>Applied AI Integration</h3>
           <p>Implementing generative models (Claude, Gemini) and visual APIs (Magnific) in real-world applications. Fluent in using assistants like GitHub Copilot and Amazon Kiro.</p>
-          <div class="card-tags"><span class="tag">LLMs</span><span class="tag">AWS Q Developer</span><span class="tag">APIs</span></div>
+          <div class="card-tags"><span class="tag">LLMs</span><span class="tag">Amazon Kiro</span><span class="tag">APIs</span></div>
         </article>
 
         <article class="glass-card card--auto reveal">
@@ -1133,18 +1147,16 @@
 
       <div class="projects-grid">
         
-        <!-- CARD COM VÍDEO (ARC SUNGLASSES) -->
+        <!-- CARD COM VÍDEO DO YOUTUBE (ARC SUNGLASSES) -->
         <article class="project-card reveal">
           <div class="project-header">
             <span class="project-badge badge--ia">.AI / WEB</span>
           </div>
           
           <div class="project-video-wrapper">
-           
             <iframe 
-              src="https://www.youtube.com/watch?v=ESooAWHb21o?autoplay=1&mute=1&loop=1&playlist=ESooAWHb21o&controls=0&modestbranding=1&rel=0&playsinline=1" 
+              src="https://www.youtube.com/embed/ESooAWHb21o?autoplay=1&mute=1&loop=1&playlist=ESooAWHb21o&controls=0&modestbranding=1&rel=0&playsinline=1" 
               title="Virtual Try-On (Arc Sunglasses)" 
-              frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen>
             </iframe>
